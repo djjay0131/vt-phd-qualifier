@@ -1,0 +1,121 @@
+name: Build and Publish PDF
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set version info
+        id: version
+        run: |
+          VERSION=$(date -u +"%Y.%m.%d")-$(echo ${{ github.sha }} | cut -c1-7)
+          BUILD_DATE=$(date -u +"%Y-%m-%d %H:%M UTC")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "date=$BUILD_DATE" >> $GITHUB_OUTPUT
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: proposal
+          root_file: main.tex
+          latexmk_use_xelatex: false
+
+      - name: Prepare PDFs for deployment
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+
+          # Create versioned copy for release
+          cp proposal/main.pdf "proposal/VT-PhD-Qualifier-${VERSION}.pdf"
+
+          # Prepare GitHub Pages content
+          mkdir -p public
+          cp proposal/main.pdf public/VT-PhD-Qualifier.pdf
+
+          # Create index page
+          cat > public/index.html << EOF
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VT PhD Qualifier Paper</title>
+            <style>
+              body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+              h1 { color: #861F41; }
+              h2 { color: #E5751F; }
+              a { color: #E5751F; text-decoration: none; font-size: 1.2em; }
+              a:hover { text-decoration: underline; }
+              .doc { margin: 20px 0; padding: 15px; background: #f5f5f5; border-radius: 8px; }
+              .version { color: #666; font-size: 0.9em; }
+            </style>
+          </head>
+          <body>
+            <h1>VT PhD Qualifier</h1>
+            <h2>Agentic AI Literature Survey &amp; Research Proposal</h2>
+            <p class="version">Version: ${VERSION}</p>
+            <div class="doc">
+              <a href="VT-PhD-Qualifier.pdf">📄 Qualifier Paper (IEEE Format)</a>
+              <p>5-6 page literature survey and research proposal</p>
+            </div>
+            <hr>
+            <p><small>Last updated: ${{ steps.version.outputs.date }}</small></p>
+          </body>
+          </html>
+          EOF
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: VT PhD Qualifier v${{ steps.version.outputs.version }}
+          body: |
+            ## VT PhD Qualifier Paper
+
+            **Version:** ${{ steps.version.outputs.version }}
+            **Built:** ${{ steps.version.outputs.date }}
+            **Commit:** ${{ github.sha }}
+
+            ## Document
+            - **VT-PhD-Qualifier** - IEEE Conference Paper (5-6 pages)
+
+            ## Quick Access
+            📎 GitHub Pages: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+          files: |
+            proposal/VT-PhD-Qualifier-${{ steps.version.outputs.version }}.pdf
+          draft: false
+          prerelease: false
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
