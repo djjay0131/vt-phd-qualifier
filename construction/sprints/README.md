@@ -4,13 +4,17 @@ This folder contains sprint documents for the PhD qualifier preparation process.
 
 ## Current Sprint
 
-**Sprint 00: Project Setup & Planning** - In Progress
+**Sprint 01: Paper Selection and Reading** - Not Started
 
 ## Sprint Overview
 
-| Sprint | Focus | Status | Completed |
-|--------|-------|--------|-----------|
-| Sprint 00 | Project Setup & Planning | In Progress | - |
+| Sprint    | Focus                                  | Status      | Completed  |
+|-----------|----------------------------------------|-------------|------------|
+| Sprint 00 | Project Setup & Planning               | Complete    | 2026-02-20 |
+| Sprint 01 | Paper Selection and Reading            | Not Started | -          |
+| Sprint 02 | Literature Review Writing              | Not Started | -          |
+| Sprint 03 | Research Proposal & Paper Completion   | Not Started | -          |
+| Sprint 04 | Presentation Preparation               | Not Started | -          |
 
 ## Document Naming Convention
 

@@ -2,9 +2,9 @@
 
 **Last Updated:** 2026-02-20
 
-## Project Status: Paper Setup Complete
+## Project Status: Sprint 2 -- Literature Review Writing
 
-Infrastructure ready. LaTeX template, CI/CD pipeline, and section files created. Ready for paper selection and writing.
+Sprint 1 complete. Gate 1 passed (2026-02-21). All 6 papers selected, annotated, theme matrix built, BibTeX complete. Now executing Sprint 2: write the thematic literature review (~3 pages).
 
 ---
 
@@ -35,11 +35,7 @@ Foundation established for systematic qualifier paper development.
 
 **Key Deliverables:**
 - `proposal/main.tex` - IEEE conference format main document
-- `proposal/sections/01-abstract.tex` - Abstract
-- `proposal/sections/02-introduction.tex` - Introduction (~0.5-0.75 pages)
-- `proposal/sections/03-literature-review.tex` - Literature Assessment (~3 pages)
-- `proposal/sections/04-research-proposal.tex` - Research Proposal (~1 page)
-- `proposal/sections/05-conclusion.tex` - Conclusion
+- `proposal/sections/01-abstract.tex` through `05-conclusion.tex`
 - `proposal/references.bib` - Bibliography (6 papers + supporting refs)
 - `.github/workflows/build-and-publish-pdf.yml` - CI/CD pipeline
 
@@ -48,32 +44,54 @@ Complete paper infrastructure ready for content development. All TODO placeholde
 
 ---
 
+### Construction Planning (2026-02-20)
+
+**What:**
+- Created comprehensive requirements document with 50+ functional requirements, non-functional requirements, 29 acceptance criteria, risk register, dependency graph, and verification plan
+- Created full design document with paper architecture, section-by-section content plan, thematic mapping strategy, writing workflow, presentation design (14-slide structure), 5 quality gates, and sprint mapping
+- Created Sprint 1: Paper Selection and Reading (6 tasks, Quality Gate 1)
+- Created Sprint 2: Literature Review Writing (10 tasks, Quality Gate 2)
+- Created Sprint 3: Research Proposal & Paper Completion (12 tasks, Quality Gates 3-4)
+- Created Sprint 4: Presentation Preparation (14 tasks, Quality Gate 5)
+
+**Key Deliverables:**
+- `construction/requirements/qualifier-requirements.md`
+- `construction/design/qualifier-design.md`
+- `construction/sprints/sprint-01-paper-selection.md`
+- `construction/sprints/sprint-02-literature-review.md`
+- `construction/sprints/sprint-03-proposal-and-completion.md`
+- `construction/sprints/sprint-04-presentation.md`
+
+**Impact:**
+Full project lifecycle is planned with clear task breakdowns, quality gates between phases, and traceability from requirements through design to sprint tasks. Sprints map directly to milestones M1-M6.
+
+---
+
 ## In Progress
 
-### Paper Selection & Reading
+### Sprint 1: Paper Selection and Reading
+
+**Sprint Doc:** `construction/sprints/sprint-01-paper-selection.md`
 
 **Tasks:**
-- [x] 2 papers uploaded (Agentic KG, Research4Agents)
-- [ ] Select remaining 4 papers (3+ total from reading lists)
-- [ ] Read and annotate all 6 papers
-- [ ] Create thematic outline
+- [x] Task 1: Review candidate papers and select remaining papers — DONE
+- [x] Task 2: Upload and organize all 6 papers in `files/paperstoreview/` — DONE
+- [x] Task 3: Read and annotate all 6 papers — DONE (files/annotations/)
+- [x] Task 4: Create paper-to-theme matrix — DONE (files/theme-matrix.md)
+- [x] Task 5: Complete all BibTeX entries in `references.bib` — DONE
+- [x] Task 6: Pass Quality Gate 1 — DONE (all 6 criteria passed)
 
-**Status:** In progress (2/6 papers selected)
+**Status:** COMPLETE — Sprint 1 finished 2026-02-21
 
 ---
 
 ## Remaining Work
 
-1. Finalize paper selection (4 more papers)
-2. Read and annotate all 6 papers
-3. Write literature review (~3 pages)
-4. Write research proposal (~1 page)
-5. Write introduction (~0.5-0.75 pages)
-6. Write conclusion
-7. Write abstract
-8. Polish formatting and verify page count
-9. Enable GitHub Pages in repo settings
-10. Prepare 15-min presentation (oral component)
+Sprints 2-4 follow Sprint 1, gated by quality checkpoints:
+
+1. **Sprint 2: Literature Review** - Write ~3 page thematic synthesis (Quality Gate 2)
+2. **Sprint 3: Research Proposal & Paper Completion** - Proposal, intro, conclusion, abstract, polish (Quality Gates 3-4)
+3. **Sprint 4: Presentation** - 14-slide deck, rehearsal, Q&A prep (Quality Gate 5)
 
 ---
 
@@ -88,36 +106,44 @@ Complete paper infrastructure ready for content development. All TODO placeholde
 ### M0: Project Setup
 - **Target:** 2026-02-20
 - **Status:** Complete
+- **Sprint:** Phase 0 (pre-sprint)
 
 ### M1: Paper Selection Complete
-- **Target:** TBD
-- **Description:** All 6 papers selected and uploaded
-- **Status:** In Progress (2/6)
+
+- **Target:** 2026-02-21
+- **Description:** All 6 papers selected, annotated, theme matrix built, BibTeX complete
+- **Status:** Complete (Gate 1 PASSED)
+- **Sprint:** Sprint 1 (Quality Gate 1)
 
 ### M2: Literature Review Draft
 - **Target:** TBD
-- **Description:** ~3 page synthesis of all 6 papers
+- **Description:** ~3 page thematic synthesis of all 6 papers
 - **Status:** Not Started
+- **Sprint:** Sprint 2 (Quality Gate 2)
 
 ### M3: Research Proposal Draft
 - **Target:** TBD
 - **Description:** ~1 page research proposal extending surveyed work
 - **Status:** Not Started
+- **Sprint:** Sprint 3 (Quality Gate 3)
 
 ### M4: Complete Paper Draft
 - **Target:** TBD
-- **Description:** Full 5-6 page paper with all sections
+- **Description:** Full 5-6 page paper with all sections, published to GitHub Pages
 - **Status:** Not Started
+- **Sprint:** Sprint 3 (Quality Gate 4)
 
 ### M5: Final Paper
 - **Target:** TBD
 - **Description:** Polished paper, published to GitHub Pages
 - **Status:** Not Started
+- **Sprint:** Sprint 3 (final task)
 
 ### M6: Presentation
 - **Target:** TBD
-- **Description:** 15-min presentation prepared
+- **Description:** 15-min presentation prepared, rehearsed, Q&A ready
 - **Status:** Not Started
+- **Sprint:** Sprint 4 (Quality Gate 5)
 
 ---
 
@@ -125,3 +151,4 @@ Complete paper infrastructure ready for content development. All TODO placeholde
 
 - Update this file after completing significant work
 - References do NOT count toward the 5-6 page limit
+- Sprint task lists in `construction/sprints/` have detailed subtasks and acceptance criteria

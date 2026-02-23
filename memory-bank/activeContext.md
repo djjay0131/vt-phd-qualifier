@@ -1,44 +1,49 @@
 # Active Context
 
-**Last Updated:** 2026-02-20
+**Last Updated:** 2026-02-21
 
 ## Current Work Phase
 
-**Phase 1: Paper Setup & Paper Selection**
+**Sprint 2: Literature Review Writing** (Phase 2)
 
-Project infrastructure complete. LaTeX template, CI/CD pipeline, and modular section files created. Next: finalize paper selection, read papers, begin writing.
+Sprint 1 is complete — Gate 1 passed. All 6 papers selected, read, annotated, theme matrix built, BibTeX complete. Now beginning Sprint 2: write the ~3 page thematic literature review in `proposal/sections/03-literature-review.tex`.
 
 ## Current State
 
 **Project Status:**
-- Repository initialized with full documentation system
-- LaTeX proposal structure created (IEEE conference format)
-- GitHub Actions workflow for automated PDF build and GitHub Pages deploy
-- 2 of 6 papers uploaded (`files/`)
-- 4 more papers needed (3+ total from reading lists)
-- All section files have TODO placeholders ready for content
 
-**Paper Selection (2/6):**
-1. Agentic Knowledge Graphs for Research Progression
-2. Research4Agents
-3. TBD (must be from reading list)
-4. TBD
-5. TBD
-6. TBD
+- Sprint 1 COMPLETE — Gate 1 PASSED (2026-02-21)
+- All 6 papers selected, annotated (`files/annotations/`), theme matrix built (`files/theme-matrix.md`)
+- All BibTeX entries complete in `references.bib`
+- LaTeX proposal structure in place; section files have TODO placeholders
+- Beginning Sprint 2: literature review writing
+
+**Construction Artifacts:**
+- Requirements: 50+ functional requirements, 29 acceptance criteria, risk register, verification plan
+- Design: Paper architecture, section-by-section content plan, thematic mapping, 5 quality gates
+- Sprint 1: Paper Selection and Reading (6 tasks, Quality Gate 1)
+- Sprint 2: Literature Review Writing (10 tasks, Quality Gate 2)
+- Sprint 3: Research Proposal & Paper Completion (12 tasks, Quality Gates 3-4)
+- Sprint 4: Presentation Preparation (14 tasks, Quality Gate 5)
+
+**Paper Selection (6/6 — Complete):**
+
+1. Empirical Standards for Software Engineering Research (Ralph et al., 2021)
+2. Open Problems in Mechanistic Interpretability (Sharkey et al., 2025)
+3. Get on the Train or be Left on the Station: Using LLMs for SE Research (Trinkenreich et al., 2025)
+4. Guidelines for Empirical Studies in SE involving LLMs (Baltes et al., 2025)
+5. The Denario Project: Deep Knowledge AI Agents for Scientific Discovery (Villaescusa-Navarro et al., 2025)
+6. A Knowledge Graph-based RAG for Cross-Document Information Extraction (Suryawanshi et al., 2025)
 
 ## Immediate Next Steps
 
-**Priority Tasks:**
+**Sprint 2 Tasks** (see `construction/sprints/sprint-02-literature-review.md`):
 
-1. **Select remaining 4 papers** - at least 1 more from reading lists (need 3+ total from lists)
-2. **Read and annotate all 6 papers** - extract key themes, methods, contributions
-3. **Create thematic outline** - group papers by theme for literature review
-4. **Write literature review** - synthesize papers, identify gaps (~3 pages)
-5. **Write research proposal** - extend surveyed work based on gaps (~1 page)
-6. **Write introduction** - motivate area, define scope (~0.5-0.75 pages)
-7. **Write conclusion** - summarize, connect to future work
-8. **Write abstract** - last, after all content is written
-9. **Polish and verify** - page count, formatting, citations
+1. Read the Sprint 2 sprint doc for the full task breakdown
+2. Begin writing `proposal/sections/03-literature-review.tex` — thematic synthesis (~3 pages)
+3. Use `files/annotations/` and `files/theme-matrix.md` as primary inputs
+4. Follow theme order from theme matrix: T1 Foundations → T2 Architectures → T3 Knowledge Rep → T4 Autonomous Research
+5. Pass Quality Gate 2 when draft is complete
 
 ## Recent Decisions
 
@@ -57,6 +62,11 @@ Project infrastructure complete. LaTeX template, CI/CD pipeline, and modular sec
 - **Decision:** Automated PDF build + GitHub Pages deployment on push to main
 - **Rationale:** Easy sharing, automated build verification, public URL for committee
 
+### Decision 4: Construction Planning Approach
+- **Date:** 2026-02-20
+- **Decision:** Created comprehensive requirements, design, and sprint docs covering the full project lifecycle
+- **Rationale:** Provides structured execution path with quality gates between phases
+
 ## Key Patterns and Preferences
 
 ### Writing Patterns
@@ -68,16 +78,18 @@ Project infrastructure complete. LaTeX template, CI/CD pipeline, and modular sec
 ### Documentation Patterns
 - Update activeContext.md after every significant change
 - Keep progress.md current with task completion
+- Follow sprint task lists for execution order
 
 ## Open Questions
 
-1. **Remaining papers** - Which 4 additional papers to select?
-2. **Reading list papers** - Which papers come from the provided reading lists?
-3. **Presentation** - When to start preparing the 15-min oral component?
+1. **Presentation tool** - Which tool to use for slides? (Deferred to Sprint 4)
 
 ## Reference Materials
 
 - Memory Bank: `memory-bank/`
+- Construction Requirements: `construction/requirements/qualifier-requirements.md`
+- Construction Design: `construction/design/qualifier-design.md`
+- Sprint 1 (current): `construction/sprints/sprint-01-paper-selection.md`
 - Qualifier Requirements: https://chbrown13.github.io/qualifier.html
 - Proposal Source: `proposal/sections/`
 - Reference Papers: `files/`
@@ -85,5 +97,6 @@ Project infrastructure complete. LaTeX template, CI/CD pipeline, and modular sec
 ## Notes for Next Session
 
 - Read ALL memory-bank files on context reset
-- Check phases.md for current phase status
-- Priority: select remaining papers and begin reading/annotating
+- Check Sprint 1 task list for current progress
+- Priority: select remaining papers (Task 1) then read and annotate (Task 3)
+- Design doc Section 4.3 has candidate paper assessment to guide selection

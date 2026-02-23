@@ -35,7 +35,7 @@ Writing a 5-6 page IEEE conference paper for the Virginia Tech PhD qualifying ex
 
 ## Current Phase
 
-**Phase 1: Paper Selection** - Select remaining 4 papers, read and annotate all 6
+**Phase 1: Paper Selection** - All 6 papers selected; read and annotate all 6
 
 ## Completed Work
 
@@ -46,7 +46,7 @@ Writing a 5-6 page IEEE conference paper for the Virginia Tech PhD qualifying ex
 
 - `proposal/main.tex` - IEEE conference paper (TODO placeholders)
 - `proposal/sections/` - 5 modular section files
-- `proposal/references.bib` - Bibliography (2/6 papers entered)
+- `proposal/references.bib` - Bibliography (6/6 papers entered)
 - `.github/workflows/build-and-publish-pdf.yml` - CI/CD pipeline
 
 ## Qualifier Requirements
@@ -56,14 +56,14 @@ Writing a 5-6 page IEEE conference paper for the Virginia Tech PhD qualifying ex
 - **Papers:** 6 total, 3+ from reading lists
 - **Oral:** 15-min presentation + 5-min Q&A
 
-## Papers Selected (2/6)
+## Papers Selected (6/6)
 
-1. Agentic Knowledge Graphs for Research Progression
-2. Research4Agents
-3. TBD
-4. TBD
-5. TBD
-6. TBD
+1. Empirical Standards for Software Engineering Research (Ralph et al., 2021) — `paperstoreview/2010.03525v2.pdf`
+2. Open Problems in Mechanistic Interpretability (Sharkey et al., 2025) — `paperstoreview/2501.16496v1.pdf`
+3. Get on the Train or be Left on the Station: Using LLMs for SE Research (Trinkenreich et al., 2025) — `paperstoreview/2506.12691v1.pdf`
+4. Guidelines for Empirical Studies in SE involving LLMs (Baltes et al., 2025) — `paperstoreview/2508.15503v3.pdf`
+5. The Denario Project: Deep Knowledge AI Agents for Scientific Discovery (Villaescusa-Navarro et al., 2025) — `paperstoreview/2510.26887v1-Denario.pdf`
+6. A Knowledge Graph-based RAG for Cross-Document Information Extraction (Suryawanshi et al., 2025) — `paperstoreview/A_Knowledge_Graph-based_RAG...pdf`
 
 ## CI/CD
 
