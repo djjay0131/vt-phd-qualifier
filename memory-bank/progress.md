@@ -67,6 +67,23 @@ Full project lifecycle is planned with clear task breakdowns, quality gates betw
 
 ---
 
+## Completed Work (continued)
+
+### Sprint 2: Literature Review Writing (2026-02-23)
+
+**What:**
+- Wrote full thematic literature review (~2.8 pages) in `proposal/sections/03-literature-review.tex`
+- 5 subsections: Background & Foundations, Agentic Architectures, Knowledge Representation, Autonomous Research, Synthesis & Gap Analysis
+- All 6 papers cited 5-9 times each (balanced distribution, max 23%)
+- 5 synthesis patterns used: Contrast, Tension, Extension, Gap, Cluster
+- 3 concrete gaps identified in Synthesis section bridging to research proposal
+- Clean LaTeX compilation, ~2.8 pages within 2.75-3.25 target
+
+**Impact:**
+Literature review complete. Gap analysis directly motivates the research proposal (Sprint 3).
+
+---
+
 ## In Progress
 
 ### Sprint 1: Paper Selection and Reading
@@ -116,9 +133,9 @@ Sprints 2-4 follow Sprint 1, gated by quality checkpoints:
 - **Sprint:** Sprint 1 (Quality Gate 1)
 
 ### M2: Literature Review Draft
-- **Target:** TBD
+- **Target:** 2026-02-23
 - **Description:** ~3 page thematic synthesis of all 6 papers
-- **Status:** Not Started
+- **Status:** Complete (Gate 2 PASSED)
 - **Sprint:** Sprint 2 (Quality Gate 2)
 
 ### M3: Research Proposal Draft

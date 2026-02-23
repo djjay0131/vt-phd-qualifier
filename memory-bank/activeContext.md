@@ -1,22 +1,23 @@
 # Active Context
 
-**Last Updated:** 2026-02-21
+**Last Updated:** 2026-02-23
 
 ## Current Work Phase
 
-**Sprint 2: Literature Review Writing** (Phase 2)
+**Sprint 3: Research Proposal & Paper Completion** (Phases 3-4)
 
-Sprint 1 is complete — Gate 1 passed. All 6 papers selected, read, annotated, theme matrix built, BibTeX complete. Now beginning Sprint 2: write the ~3 page thematic literature review in `proposal/sections/03-literature-review.tex`.
+Sprint 2 is complete — Gate 2 passed. Literature review (~2.8 pages, 5 subsections) written with all 6 papers cited, 5 synthesis patterns used, and 3 concrete gaps identified. Now beginning Sprint 3: write the research proposal, introduction, conclusion, abstract, and polish the full paper.
 
 ## Current State
 
 **Project Status:**
 
 - Sprint 1 COMPLETE — Gate 1 PASSED (2026-02-21)
-- All 6 papers selected, annotated (`files/annotations/`), theme matrix built (`files/theme-matrix.md`)
-- All BibTeX entries complete in `references.bib`
-- LaTeX proposal structure in place; section files have TODO placeholders
-- Beginning Sprint 2: literature review writing
+- Sprint 2 COMPLETE — Gate 2 PASSED (2026-02-23)
+- Literature review written in `proposal/sections/03-literature-review.tex` (~2.8 pages)
+- 3 gaps identified: (1) no KG+agent integration, (2) no evaluation framework for AI research, (3) no cumulative learning
+- Remaining sections (intro, proposal, conclusion, abstract) still have TODO placeholders
+- Beginning Sprint 3: research proposal and paper completion
 
 **Construction Artifacts:**
 - Requirements: 50+ functional requirements, 29 acceptance criteria, risk register, verification plan
@@ -37,13 +38,14 @@ Sprint 1 is complete — Gate 1 passed. All 6 papers selected, read, annotated, 
 
 ## Immediate Next Steps
 
-**Sprint 2 Tasks** (see `construction/sprints/sprint-02-literature-review.md`):
+**Sprint 3 Tasks** (see `construction/sprints/sprint-03-proposal-and-completion.md`):
 
-1. Read the Sprint 2 sprint doc for the full task breakdown
-2. Begin writing `proposal/sections/03-literature-review.tex` — thematic synthesis (~3 pages)
-3. Use `files/annotations/` and `files/theme-matrix.md` as primary inputs
-4. Follow theme order from theme matrix: T1 Foundations → T2 Architectures → T3 Knowledge Rep → T4 Autonomous Research
-5. Pass Quality Gate 2 when draft is complete
+1. Write research proposal (~1 page) — problem statement, approach, contributions
+2. Write introduction (~0.5-0.75 pages)
+3. Write conclusion
+4. Write abstract (150-200 words)
+5. Polish and verify full paper (5-6 pages)
+6. Pass Quality Gates 3 and 4
 
 ## Recent Decisions
 
@@ -97,6 +99,6 @@ Sprint 1 is complete — Gate 1 passed. All 6 papers selected, read, annotated, 
 ## Notes for Next Session
 
 - Read ALL memory-bank files on context reset
-- Check Sprint 1 task list for current progress
-- Priority: select remaining papers (Task 1) then read and annotate (Task 3)
-- Design doc Section 4.3 has candidate paper assessment to guide selection
+- Check Sprint 3 task list for current progress
+- Priority: write research proposal (flows from 3 gaps in lit review synthesis)
+- Design doc Sections 3.4, 3.5 have content plans for proposal and conclusion
