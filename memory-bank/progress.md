@@ -1,6 +1,6 @@
 # Progress Tracking
 
-**Last Updated:** 2026-02-23
+**Last Updated:** 2026-02-24
 
 ## Project Status: Sprint 3 -- Research Proposal & Paper Completion
 
@@ -87,6 +87,27 @@ Literature review finalized. Three-gap taxonomy with provenance as central struc
 
 ---
 
+### Sprint 3 Tasks 1-3: Research Proposal (2026-02-24)
+
+**What:**
+- Wrote full research proposal in `proposal/sections/04-research-proposal.tex`
+- 4 subsections: Problem Statement, Proposed Approach, Expected Contributions, Scope & Limitations
+- Aligned with existing proposal in `files/Agentic_Knowledge_Graphs_for_Research_Progression.pdf`
+- Three-layer architecture: Knowledge Representation, Automation/Extraction, Agentic Orchestration
+- Research problems as first-class KG entities with semantic relations (extends, contradicts, depends-on)
+- Provenance-first framing: span-level evidence alignment, canonicalization auditing
+- KGs as primary substrate; provenance patterns generalize across persistent knowledge representations
+- Three contributions mapped 1:1 to three gaps from synthesis
+- Four evaluation dimensions: extraction reliability, retrieval quality, progression utility, claim-evidence faithfulness
+- Softened absolute claims (partial verification, extraction reliability constraints, fluid problem boundaries)
+- Justified graph structure (non-hierarchical many-to-many relationships)
+- Distinguished from traditional RAG (persistent state, canonical resolution, validated graph objects)
+
+**Impact:**
+Research proposal complete. Flows directly from three-gap taxonomy in literature review. Ready for Quality Gate 3.
+
+---
+
 ## In Progress
 
 ### Sprint 1: Paper Selection and Reading
@@ -107,7 +128,7 @@ Literature review finalized. Three-gap taxonomy with provenance as central struc
 
 ## Remaining Work
 
-1. **Sprint 3: Research Proposal & Paper Completion** - Proposal, intro, conclusion, abstract, polish (Quality Gates 3-4)
+1. **Sprint 3: Research Proposal & Paper Completion** - ~~Proposal~~, intro, conclusion, abstract, polish (Quality Gates 3-4)
 2. **Sprint 4: Presentation** - 14-slide deck, rehearsal, Q&A prep (Quality Gate 5)
 
 ---
@@ -139,9 +160,9 @@ Literature review finalized. Three-gap taxonomy with provenance as central struc
 - **Sprint:** Sprint 2 (Quality Gate 2)
 
 ### M3: Research Proposal Draft
-- **Target:** TBD
+- **Target:** 2026-02-24
 - **Description:** ~1 page research proposal extending surveyed work
-- **Status:** Not Started
+- **Status:** Draft Complete (Gate 3 pending)
 - **Sprint:** Sprint 3 (Quality Gate 3)
 
 ### M4: Complete Paper Draft
