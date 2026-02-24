@@ -1,2 +1,18 @@
 # Large files (>50MB)
 files/paperstoreview/2510.26887v1-Denario.pdf
+
+# LaTeX build artifacts
+proposal/main.aux
+proposal/main.bbl
+proposal/main.blg
+proposal/main.fdb_latexmk
+proposal/main.fls
+proposal/main.log
+proposal/main.out
+proposal/main.synctex.gz
+
+# OS files
+.DS_Store
+
+# IDE
+vt-phd-qualifier.code-workspace
