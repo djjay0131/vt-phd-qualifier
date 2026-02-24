@@ -1,8 +1,8 @@
 # Sprint 3: Research Proposal and Paper Completion
 
 **Sprint Goal:** Write the research proposal, introduction, conclusion, and abstract; then polish and publish the complete 5-6 page IEEE paper.
-**Start Date:** TBD
-**Status:** Not Started
+**Start Date:** 2026-02-24
+**Status:** In Progress (Tasks 1-3 complete)
 
 **Prerequisites:** Sprint 2 complete (Quality Gate 2 passed -- literature review drafted, all 5 subsections complete, gap analysis identifies 2-3 concrete gaps)
 
@@ -55,13 +55,13 @@ Final Polish + Publish
 **File:** `proposal/sections/04-research-proposal.tex`
 **Target:** First subsection of ~1 page proposal
 
-- [ ] Review gap analysis in Section 3.3.5 and identify the primary gap to address
-- [ ] Reference the specific gap(s) by section label (explicit `\ref{sec:lit-synthesis}`)
-- [ ] State the problem in 2-3 sentences
-- [ ] Explain why existing approaches (citing specific papers) are insufficient
-- [ ] Define the scope of the proposed research
-- [ ] Verify the problem is NOT already solved by any of the 6 papers
-- [ ] Compile LaTeX and verify no errors
+- [x] Review gap analysis in Section 3.3.5 and identify the primary gap to address
+- [x] Reference the specific gap(s) by section label (explicit `\ref{sec:lit-synthesis}`)
+- [x] State the problem in 2-3 sentences
+- [x] Explain why existing approaches (citing specific papers) are insufficient
+- [x] Define the scope of the proposed research
+- [x] Verify the problem is NOT already solved by any of the 6 papers
+- [x] Compile LaTeX and verify no errors
 
 **Acceptance Criteria:**
 - Problem statement explicitly references Section 3.3.5 gaps by label
@@ -76,12 +76,12 @@ Final Polish + Publish
 **File:** `proposal/sections/04-research-proposal.tex`
 **Dependencies:** Task 1 complete
 
-- [ ] Describe the high-level methodology (what to build, study, or prove)
-- [ ] Connect the approach to strengths identified in surveyed papers (build on what works)
-- [ ] Identify 2-3 key technical challenges
-- [ ] Explain what makes this approach feasible
-- [ ] Use concrete language (NOT "explore" or "investigate" -- say what will be built or measured)
-- [ ] Compile LaTeX and verify no errors
+- [x] Describe the high-level methodology (what to build, study, or prove)
+- [x] Connect the approach to strengths identified in surveyed papers (build on what works)
+- [x] Identify 2-3 key technical challenges
+- [x] Explain what makes this approach feasible
+- [x] Use concrete language (NOT "explore" or "investigate" -- say what will be built or measured)
+- [x] Compile LaTeX and verify no errors
 
 **Acceptance Criteria:**
 - Approach is concrete and actionable (a reader can envision what would be built/studied)
@@ -96,11 +96,11 @@ Final Polish + Publish
 **File:** `proposal/sections/04-research-proposal.tex`
 **Dependencies:** Task 2 complete
 
-- [ ] List 2-3 specific contributions
-- [ ] Map each contribution to a specific gap from Section 3.3.5
-- [ ] State how each contribution advances the state of the art
-- [ ] Briefly note how each contribution could be evaluated
-- [ ] Compile LaTeX and verify no errors
+- [x] List 2-3 specific contributions
+- [x] Map each contribution to a specific gap from Section 3.3.5
+- [x] State how each contribution advances the state of the art
+- [x] Briefly note how each contribution could be evaluated
+- [x] Compile LaTeX and verify no errors
 
 **Acceptance Criteria:**
 - Each contribution traces back to a named gap
@@ -352,12 +352,14 @@ This is the final quality gate before presentation preparation.
 ## Progress Summary
 
 ```
-Sprint Progress: 0/12 tasks (0%)
+Sprint Progress: 3/12 tasks (25%)
+
+Completed:
+- [x] Task 1:  Research Proposal -- Problem Statement
+- [x] Task 2:  Research Proposal -- Proposed Approach
+- [x] Task 3:  Research Proposal -- Expected Contributions
 
 Not Started:
-- [ ] Task 1:  Research Proposal -- Problem Statement
-- [ ] Task 2:  Research Proposal -- Proposed Approach
-- [ ] Task 3:  Research Proposal -- Expected Contributions
 - [ ] Task 4:  Quality Gate 3 -- Research Proposal Draft
 - [ ] Task 5:  Introduction
 - [ ] Task 6:  Conclusion

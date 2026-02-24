@@ -1,12 +1,12 @@
 # Active Context
 
-**Last Updated:** 2026-02-23
+**Last Updated:** 2026-02-24
 
 ## Current Work Phase
 
 **Sprint 3: Research Proposal & Paper Completion** (Phases 3-4)
 
-Sprint 2 complete. Literature review revised and tightened (~27% reduction). Three-gap taxonomy (architectural, evaluation, provenance) now drives the synthesis, with provenance and evidence alignment foregrounded as the central unresolved problem. Ready for Sprint 3 Task 1: write the research proposal.
+Sprint 3 Tasks 1-3 complete. Research proposal written, aligned with existing proposal paper, refined for academic rigor. Ready for Quality Gate 3, then Introduction.
 
 ## Current State
 
@@ -14,12 +14,12 @@ Sprint 2 complete. Literature review revised and tightened (~27% reduction). Thr
 
 - Sprint 1 COMPLETE — Gate 1 PASSED (2026-02-21)
 - Sprint 2 COMPLETE — Gate 2 PASSED (2026-02-23)
-- Literature review revised in `proposal/sections/03-literature-review.tex` (tightened, ~2 pages)
-- 3 gap categories: (a) architectural capability, (b) evaluation, (c) provenance/faithfulness
-- Central thesis: provenance and evidence alignment is the structural problem connecting all three gaps
-- Key concepts introduced in synthesis: span-level evidence alignment, canonicalization auditing
-- Remaining sections (intro, proposal, conclusion, abstract) still have TODO placeholders
-- Beginning Sprint 3: research proposal and paper completion
+- Sprint 3 Tasks 1-3 COMPLETE — Research proposal drafted and refined (2026-02-24)
+- Literature review in `proposal/sections/03-literature-review.tex` (~2 pages)
+- Research proposal in `proposal/sections/04-research-proposal.tex` (~1.5 pages)
+- Proposal: "agentic knowledge graphs for research progression" — provenance-first, three-layer architecture
+- KG is primary substrate but provenance-enforcement patterns generalize across representations
+- Remaining sections: intro, conclusion, abstract still have TODO placeholders
 
 **Construction Artifacts:**
 - Requirements: 50+ functional requirements, 29 acceptance criteria, risk register, verification plan
@@ -42,12 +42,13 @@ Sprint 2 complete. Literature review revised and tightened (~27% reduction). Thr
 
 **Sprint 3 Tasks** (see `construction/sprints/sprint-03-proposal-and-completion.md`):
 
-1. Write research proposal (~1 page) — problem statement, approach, contributions
-2. Write introduction (~0.5-0.75 pages)
-3. Write conclusion
-4. Write abstract (150-200 words)
-5. Polish and verify full paper (5-6 pages)
-6. Pass Quality Gates 3 and 4
+1. ~~Write research proposal~~ — DONE (Tasks 1-3)
+2. Pass Quality Gate 3 — Research Proposal Draft (Task 4)
+3. Write introduction (~0.5-0.75 pages) (Task 5)
+4. Write conclusion (Task 6)
+5. Write abstract (150-200 words) (Task 7)
+6. Polish, verify, publish (Tasks 8-12)
+7. Pass Quality Gate 4
 
 ## Recent Decisions
 
@@ -102,8 +103,9 @@ Sprint 2 complete. Literature review revised and tightened (~27% reduction). Thr
 
 - Read ALL memory-bank files on context reset
 - Check Sprint 3 task list for current progress
-- Priority: Sprint 3 Task 1 — write research proposal problem statement
-- Proposal must flow from the three-gap taxonomy (architectural, evaluation, provenance) in synthesis
-- Central framing: provenance and evidence alignment as the structural problem
-- Design doc Sections 3.4, 3.5 have content plans for proposal and conclusion
-- Writing order is STRICT: Proposal -> Introduction -> Conclusion -> Abstract -> Polish
+- Priority: Quality Gate 3 (Task 4), then Introduction (Task 5)
+- Proposal aligned with `files/Agentic_Knowledge_Graphs_for_Research_Progression.pdf`
+- Three-layer architecture: Knowledge Representation, Automation/Extraction, Agentic Orchestration
+- KGs as primary substrate; provenance patterns generalize across representations
+- Design doc Section 3.5 has content plan for conclusion
+- Writing order is STRICT: ~~Proposal~~ -> Introduction -> Conclusion -> Abstract -> Polish
