@@ -59,7 +59,7 @@ jobs:
           <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Agentic AI for Autonomous Research &mdash; DJ Turner, Virginia Tech</title>
+            <title>Agentic AI for Autonomous Research &mdash; Jason Cusati, Virginia Tech</title>
             <style>
               :root {
                 --vt-maroon: #861F41;
@@ -318,7 +318,7 @@ jobs:
 
             <header>
               <h1>Agentic AI for Autonomous Research: A Literature Survey and Research Proposal</h1>
-              <div class="author">DJ Turner</div>
+              <div class="author">Jason Cusati</div>
               <div class="affiliation">Department of Computer Science, Virginia Tech</div>
               <div class="qualifier-badge">PhD Qualifying Examination</div>
             </header>
