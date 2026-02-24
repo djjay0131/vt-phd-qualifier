@@ -1,11 +1,10 @@
 \section{Introduction}
 \label{sec:introduction}
 
-% ~0.5-0.75 pages
-% - Motivate the research area (agentic AI, autonomous research agents)
-% - Define key terms and scope
-% - State the purpose of this survey
-% - Preview the structure of the paper
-% - Connect to your research interests
+Large language models have moved beyond isolated text generation into a new operational role: as components of \emph{semi-autonomous agentic systems} that perceive research contexts, invoke external tools, and coordinate multi-step workflows with limited human oversight~\cite{villaescusa2025denario, trinkenreich2025train}. Where earlier applications treated language models as question-answering interfaces, emerging architectures orchestrate multiple specialized agents---responsible for tasks such as literature retrieval, data analysis, and manuscript drafting---within pipelines capable of executing substantial portions of the research cycle~\cite{villaescusa2025denario}. This shift from isolated model usage to coordinated, tool-using agent systems represents a qualitative change in how AI participates in scientific work.
 
-TODO: Write introduction motivating agentic AI research and previewing the survey structure.
+As agentic systems transition from experimental prototypes to components of real research workflows, the need for supporting infrastructure becomes increasingly evident. The mechanisms for ensuring persistence, traceability, and evaluability have not advanced at the same pace as architectural capability. In particular, current systems lack tightly integrated persistent knowledge representations~\cite{suryawanshi2025kgrag}, validated evaluation frameworks tailored to agent-generated outputs~\cite{ralph2021empirical, baltes2025guidelines}, and systematically enforced mechanisms for tracing generated claims to the specific evidence that supports them~\cite{sharkey2025mechanistic}. We use the term \emph{provenance and evidence alignment} to describe this traceability requirement, and \emph{research progression} to denote the structured continuation, evaluation, and validation of research problems across sessions and documents.
+
+This paper synthesizes six strands of recent work spanning agentic architectures for scientific discovery~\cite{villaescusa2025denario}, knowledge graph--based retrieval systems~\cite{suryawanshi2025kgrag}, empirical standards for software engineering research~\cite{ralph2021empirical}, methodological guidelines for LLM-based studies~\cite{baltes2025guidelines}, and mechanistic interpretability~\cite{sharkey2025mechanistic}. Rather than reviewing these contributions in isolation, we analyze them collectively to surface structural gaps in the current landscape. Building on this synthesis, we propose a provenance-first architecture for semi-autonomous research progression—one that embeds span-level evidence alignment into persistent, structured knowledge infrastructure so that generated outputs remain traceable and auditable across research sessions. The proposed system is designed to augment human research judgment, not replace it.
+
+The remainder of this paper is organized as follows. Section~\ref{sec:literature} presents the literature assessment. Section~\ref{sec:proposal} develops the research proposal. Section~\ref{sec:conclusion} discusses implications and future directions.

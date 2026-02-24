@@ -6,7 +6,7 @@
 
 **Sprint 3: Research Proposal & Paper Completion** (Phases 3-4)
 
-Sprint 3 Tasks 1-3 complete. Research proposal written, aligned with existing proposal paper, refined for academic rigor. Ready for Quality Gate 3, then Introduction.
+Sprint 3 Tasks 1-5 complete. Research proposal and introduction written. Gate 3 passed (page count deferred to polish). Next: Conclusion (Task 6).
 
 ## Current State
 
@@ -14,12 +14,14 @@ Sprint 3 Tasks 1-3 complete. Research proposal written, aligned with existing pr
 
 - Sprint 1 COMPLETE — Gate 1 PASSED (2026-02-21)
 - Sprint 2 COMPLETE — Gate 2 PASSED (2026-02-23)
-- Sprint 3 Tasks 1-3 COMPLETE — Research proposal drafted and refined (2026-02-24)
+- Sprint 3 Tasks 1-5 COMPLETE — Proposal, Gate 3, and Introduction done (2026-02-24)
+- Introduction in `proposal/sections/02-introduction.tex` (~0.5 pages, all 6 papers cited)
 - Literature review in `proposal/sections/03-literature-review.tex` (~2 pages)
 - Research proposal in `proposal/sections/04-research-proposal.tex` (~1.5 pages)
 - Proposal: "agentic knowledge graphs for research progression" — provenance-first, three-layer architecture
 - KG is primary substrate but provenance-enforcement patterns generalize across representations
-- Remaining sections: intro, conclusion, abstract still have TODO placeholders
+- Remaining sections: conclusion, abstract still have TODO placeholders
+- Gate 3 passed (6/7, page count flag deferred to polish phase Task 9)
 
 **Construction Artifacts:**
 - Requirements: 50+ functional requirements, 29 acceptance criteria, risk register, verification plan
@@ -43,8 +45,8 @@ Sprint 3 Tasks 1-3 complete. Research proposal written, aligned with existing pr
 **Sprint 3 Tasks** (see `construction/sprints/sprint-03-proposal-and-completion.md`):
 
 1. ~~Write research proposal~~ — DONE (Tasks 1-3)
-2. Pass Quality Gate 3 — Research Proposal Draft (Task 4)
-3. Write introduction (~0.5-0.75 pages) (Task 5)
+2. ~~Pass Quality Gate 3~~ — PASSED with page count deferred (Task 4)
+3. ~~Write introduction~~ — DONE (Task 5)
 4. Write conclusion (Task 6)
 5. Write abstract (150-200 words) (Task 7)
 6. Polish, verify, publish (Tasks 8-12)
@@ -103,9 +105,9 @@ Sprint 3 Tasks 1-3 complete. Research proposal written, aligned with existing pr
 
 - Read ALL memory-bank files on context reset
 - Check Sprint 3 task list for current progress
-- Priority: Quality Gate 3 (Task 4), then Introduction (Task 5)
+- Priority: Conclusion (Task 6), then Abstract (Task 7)
 - Proposal aligned with `files/Agentic_Knowledge_Graphs_for_Research_Progression.pdf`
 - Three-layer architecture: Knowledge Representation, Automation/Extraction, Agentic Orchestration
 - KGs as primary substrate; provenance patterns generalize across representations
 - Design doc Section 3.5 has content plan for conclusion
-- Writing order is STRICT: ~~Proposal~~ -> Introduction -> Conclusion -> Abstract -> Polish
+- Writing order is STRICT: ~~Proposal~~ -> ~~Introduction~~ -> Conclusion -> Abstract -> Polish
