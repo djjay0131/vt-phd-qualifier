@@ -1,10 +1,10 @@
 # Progress Tracking
 
-**Last Updated:** 2026-02-20
+**Last Updated:** 2026-02-23
 
-## Project Status: Sprint 2 -- Literature Review Writing
+## Project Status: Sprint 3 -- Research Proposal & Paper Completion
 
-Sprint 1 complete. Gate 1 passed (2026-02-21). All 6 papers selected, annotated, theme matrix built, BibTeX complete. Now executing Sprint 2: write the thematic literature review (~3 pages).
+Sprints 1-2 complete. Literature review written, revised, and tightened. Three-gap taxonomy with provenance framing established. Now executing Sprint 3: write research proposal, introduction, conclusion, abstract, polish.
 
 ---
 
@@ -72,15 +72,18 @@ Full project lifecycle is planned with clear task breakdowns, quality gates betw
 ### Sprint 2: Literature Review Writing (2026-02-23)
 
 **What:**
-- Wrote full thematic literature review (~2.8 pages) in `proposal/sections/03-literature-review.tex`
+- Wrote full thematic literature review in `proposal/sections/03-literature-review.tex`
 - 5 subsections: Background & Foundations, Agentic Architectures, Knowledge Representation, Autonomous Research, Synthesis & Gap Analysis
-- All 6 papers cited 5-9 times each (balanced distribution, max 23%)
-- 5 synthesis patterns used: Contrast, Tension, Extension, Gap, Cluster
-- 3 concrete gaps identified in Synthesis section bridging to research proposal
-- Clean LaTeX compilation, ~2.8 pages within 2.75-3.25 target
+- All 6 papers cited with balanced distribution
+- Revised and tightened (~27% reduction): removed numeric inventory, strengthened critical evaluation
+- Added verified paper-specific limitations (Ralph SE-scoped, Baltes untested, Trinkenreich theoretical, Sharkey transformer-centric)
+- Corrected Denario framing: assistant (author intent) vs. autonomous (architectural capability)
+- Restructured synthesis into three-gap taxonomy: architectural, evaluation, provenance/faithfulness
+- Introduced span-level evidence alignment and canonicalization auditing as concrete missing capabilities
+- Added epistemic closing on distribution-bounded automation
 
 **Impact:**
-Literature review complete. Gap analysis directly motivates the research proposal (Sprint 3).
+Literature review finalized. Three-gap taxonomy with provenance as central structural problem directly motivates research proposal (Sprint 3).
 
 ---
 
@@ -104,11 +107,8 @@ Literature review complete. Gap analysis directly motivates the research proposa
 
 ## Remaining Work
 
-Sprints 2-4 follow Sprint 1, gated by quality checkpoints:
-
-1. **Sprint 2: Literature Review** - Write ~3 page thematic synthesis (Quality Gate 2)
-2. **Sprint 3: Research Proposal & Paper Completion** - Proposal, intro, conclusion, abstract, polish (Quality Gates 3-4)
-3. **Sprint 4: Presentation** - 14-slide deck, rehearsal, Q&A prep (Quality Gate 5)
+1. **Sprint 3: Research Proposal & Paper Completion** - Proposal, intro, conclusion, abstract, polish (Quality Gates 3-4)
+2. **Sprint 4: Presentation** - 14-slide deck, rehearsal, Q&A prep (Quality Gate 5)
 
 ---
 

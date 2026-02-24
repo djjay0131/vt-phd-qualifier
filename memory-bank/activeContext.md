@@ -6,7 +6,7 @@
 
 **Sprint 3: Research Proposal & Paper Completion** (Phases 3-4)
 
-Sprint 2 is complete — Gate 2 passed. Literature review (~2.8 pages, 5 subsections) written with all 6 papers cited, 5 synthesis patterns used, and 3 concrete gaps identified. Now beginning Sprint 3: write the research proposal, introduction, conclusion, abstract, and polish the full paper.
+Sprint 2 complete. Literature review revised and tightened (~27% reduction). Three-gap taxonomy (architectural, evaluation, provenance) now drives the synthesis, with provenance and evidence alignment foregrounded as the central unresolved problem. Ready for Sprint 3 Task 1: write the research proposal.
 
 ## Current State
 
@@ -14,8 +14,10 @@ Sprint 2 is complete — Gate 2 passed. Literature review (~2.8 pages, 5 subsect
 
 - Sprint 1 COMPLETE — Gate 1 PASSED (2026-02-21)
 - Sprint 2 COMPLETE — Gate 2 PASSED (2026-02-23)
-- Literature review written in `proposal/sections/03-literature-review.tex` (~2.8 pages)
-- 3 gaps identified: (1) no KG+agent integration, (2) no evaluation framework for AI research, (3) no cumulative learning
+- Literature review revised in `proposal/sections/03-literature-review.tex` (tightened, ~2 pages)
+- 3 gap categories: (a) architectural capability, (b) evaluation, (c) provenance/faithfulness
+- Central thesis: provenance and evidence alignment is the structural problem connecting all three gaps
+- Key concepts introduced in synthesis: span-level evidence alignment, canonicalization auditing
 - Remaining sections (intro, proposal, conclusion, abstract) still have TODO placeholders
 - Beginning Sprint 3: research proposal and paper completion
 
@@ -100,5 +102,8 @@ Sprint 2 is complete — Gate 2 passed. Literature review (~2.8 pages, 5 subsect
 
 - Read ALL memory-bank files on context reset
 - Check Sprint 3 task list for current progress
-- Priority: write research proposal (flows from 3 gaps in lit review synthesis)
+- Priority: Sprint 3 Task 1 — write research proposal problem statement
+- Proposal must flow from the three-gap taxonomy (architectural, evaluation, provenance) in synthesis
+- Central framing: provenance and evidence alignment as the structural problem
 - Design doc Sections 3.4, 3.5 have content plans for proposal and conclusion
+- Writing order is STRICT: Proposal -> Introduction -> Conclusion -> Abstract -> Polish
