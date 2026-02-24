@@ -1,0 +1,51 @@
+\documentclass[conference]{IEEEtran}
+
+% Packages
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{balance}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+\begin{document}
+
+\title{Agentic AI for Autonomous Research: A Literature Survey and Research Proposal}
+
+\author{\IEEEauthorblockN{DJ Turner}
+\IEEEauthorblockA{Department of Computer Science\\
+Virginia Tech\\
+Blacksburg, VA 24061\\
+djjay@vt.edu}}
+
+\maketitle
+
+% Abstract and Introduction (~1 page)
+\input{sections/01-abstract}
+\input{sections/02-introduction}
+
+% Literature Assessment (~3 pages)
+\input{sections/03-literature-review}
+
+% Research Proposal (~1 page)
+\input{sections/04-research-proposal}
+
+% Conclusion
+\input{sections/05-conclusion}
+
+% References (do not count toward page limit)
+\balance
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}
