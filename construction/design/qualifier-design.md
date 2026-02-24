@@ -2,7 +2,7 @@
 
 **Status:** Complete
 **Created:** 2026-02-20
-**Author:** DJ Turner
+**Author:** Jason Cusati
 **References:** ADR-001, ADR-002, ADR-003, ADR-004
 
 ---
