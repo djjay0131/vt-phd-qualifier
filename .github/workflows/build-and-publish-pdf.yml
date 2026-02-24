@@ -38,9 +38,10 @@ jobs:
           root_file: main.tex
           latexmk_use_xelatex: false
 
-      - name: Prepare PDFs for deployment
+      - name: Prepare deployment
         run: |
           VERSION=${{ steps.version.outputs.version }}
+          BUILD_DATE="${{ steps.version.outputs.date }}"
 
           # Create versioned copy for release
           cp proposal/main.pdf "proposal/VT-PhD-Qualifier-${VERSION}.pdf"
@@ -49,37 +50,378 @@ jobs:
           mkdir -p public
           cp proposal/main.pdf public/VT-PhD-Qualifier.pdf
 
-          # Create index page
-          cat > public/index.html << EOF
+      - name: Generate landing page
+        run: |
+          BUILD_DATE="${{ steps.version.outputs.date }}"
+          cat > public/index.html << 'HEREDOC'
           <!DOCTYPE html>
           <html lang="en">
           <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>VT PhD Qualifier Paper</title>
+            <title>Agentic AI for Autonomous Research &mdash; DJ Turner, Virginia Tech</title>
             <style>
-              body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
-              h1 { color: #861F41; }
-              h2 { color: #E5751F; }
-              a { color: #E5751F; text-decoration: none; font-size: 1.2em; }
-              a:hover { text-decoration: underline; }
-              .doc { margin: 20px 0; padding: 15px; background: #f5f5f5; border-radius: 8px; }
-              .version { color: #666; font-size: 0.9em; }
+              :root {
+                --vt-maroon: #861F41;
+                --vt-orange: #E5751F;
+                --vt-maroon-light: #a83259;
+                --bg: #fafafa;
+                --card-bg: #ffffff;
+                --text: #2c2c2c;
+                --text-muted: #666;
+                --border: #e0e0e0;
+              }
+              * { margin: 0; padding: 0; box-sizing: border-box; }
+              body {
+                font-family: 'Georgia', 'Times New Roman', serif;
+                background: var(--bg);
+                color: var(--text);
+                line-height: 1.7;
+              }
+
+              /* Header */
+              header {
+                background: linear-gradient(135deg, var(--vt-maroon) 0%, #5c1530 100%);
+                color: white;
+                padding: 3rem 2rem 2.5rem;
+                text-align: center;
+              }
+              header h1 {
+                font-size: 1.8rem;
+                font-weight: 700;
+                max-width: 720px;
+                margin: 0 auto 0.75rem;
+                line-height: 1.3;
+              }
+              header .author {
+                font-size: 1.05rem;
+                opacity: 0.9;
+                margin-bottom: 0.3rem;
+              }
+              header .affiliation {
+                font-size: 0.9rem;
+                opacity: 0.7;
+              }
+              header .qualifier-badge {
+                display: inline-block;
+                margin-top: 1rem;
+                padding: 0.3rem 1rem;
+                border: 1px solid rgba(255,255,255,0.4);
+                border-radius: 20px;
+                font-size: 0.8rem;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                opacity: 0.8;
+              }
+
+              /* Download bar */
+              .download-bar {
+                background: var(--vt-orange);
+                padding: 1rem 2rem;
+                text-align: center;
+              }
+              .download-bar a {
+                color: white;
+                text-decoration: none;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                font-size: 1rem;
+                font-weight: 600;
+                padding: 0.6rem 2rem;
+                background: rgba(0,0,0,0.15);
+                border-radius: 6px;
+                display: inline-block;
+                transition: background 0.2s;
+              }
+              .download-bar a:hover {
+                background: rgba(0,0,0,0.3);
+              }
+
+              /* Main content */
+              main {
+                max-width: 860px;
+                margin: 0 auto;
+                padding: 2rem 1.5rem 3rem;
+              }
+
+              /* Section styles */
+              .section {
+                margin-bottom: 2.5rem;
+              }
+              .section h2 {
+                font-size: 1.2rem;
+                color: var(--vt-maroon);
+                border-bottom: 2px solid var(--vt-maroon);
+                padding-bottom: 0.4rem;
+                margin-bottom: 1rem;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+              }
+              .section p {
+                margin-bottom: 0.8rem;
+                text-align: justify;
+              }
+
+              /* Gap cards */
+              .gaps {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-top: 1rem;
+              }
+              @media (min-width: 640px) {
+                .gaps { grid-template-columns: 1fr 1fr 1fr; }
+              }
+              .gap-card {
+                background: var(--card-bg);
+                border: 1px solid var(--border);
+                border-top: 3px solid var(--vt-maroon);
+                border-radius: 4px;
+                padding: 1.2rem;
+              }
+              .gap-card h3 {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                font-size: 0.85rem;
+                color: var(--vt-maroon);
+                margin-bottom: 0.5rem;
+                text-transform: uppercase;
+                letter-spacing: 0.03em;
+              }
+              .gap-card p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+                text-align: left;
+              }
+
+              /* Contribution cards */
+              .contributions {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-top: 1rem;
+              }
+              @media (min-width: 640px) {
+                .contributions { grid-template-columns: 1fr 1fr 1fr; }
+              }
+              .contrib-card {
+                background: var(--card-bg);
+                border: 1px solid var(--border);
+                border-left: 4px solid var(--vt-orange);
+                border-radius: 4px;
+                padding: 1.2rem;
+              }
+              .contrib-card .number {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: var(--vt-orange);
+                margin-bottom: 0.3rem;
+              }
+              .contrib-card h3 {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                font-size: 0.9rem;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+              }
+              .contrib-card p {
+                font-size: 0.85rem;
+                line-height: 1.5;
+                color: var(--text-muted);
+                text-align: left;
+              }
+
+              /* Architecture diagram (text-based) */
+              .architecture {
+                background: var(--card-bg);
+                border: 1px solid var(--border);
+                border-radius: 6px;
+                padding: 1.5rem;
+                margin-top: 1rem;
+                text-align: center;
+              }
+              .arch-layer {
+                display: inline-block;
+                padding: 0.6rem 1.5rem;
+                margin: 0.3rem;
+                border-radius: 4px;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                font-size: 0.85rem;
+                font-weight: 600;
+                width: 80%;
+                max-width: 400px;
+              }
+              .arch-layer.top {
+                background: var(--vt-maroon);
+                color: white;
+              }
+              .arch-layer.mid {
+                background: var(--vt-orange);
+                color: white;
+              }
+              .arch-layer.bottom {
+                background: #4a6741;
+                color: white;
+              }
+              .arch-arrow {
+                font-size: 1.2rem;
+                color: var(--text-muted);
+                display: block;
+                margin: 0.1rem 0;
+              }
+              .arch-label {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                font-size: 0.75rem;
+                color: var(--text-muted);
+                margin-top: 0.8rem;
+              }
+
+              /* Papers list */
+              .papers-list {
+                list-style: none;
+                padding: 0;
+              }
+              .papers-list li {
+                padding: 0.5rem 0;
+                border-bottom: 1px solid #f0f0f0;
+                font-size: 0.9rem;
+              }
+              .papers-list li:last-child { border-bottom: none; }
+              .papers-list .paper-num {
+                display: inline-block;
+                width: 1.5rem;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                font-weight: 700;
+                color: var(--vt-maroon);
+              }
+
+              /* Footer */
+              footer {
+                text-align: center;
+                padding: 1.5rem;
+                font-size: 0.8rem;
+                color: var(--text-muted);
+                border-top: 1px solid var(--border);
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+              }
+
+              /* Key insight callout */
+              .callout {
+                background: #fdf6ec;
+                border-left: 4px solid var(--vt-orange);
+                padding: 1rem 1.2rem;
+                margin: 1rem 0;
+                font-style: italic;
+              }
             </style>
           </head>
           <body>
-            <h1>VT PhD Qualifier</h1>
-            <h2>Agentic AI Literature Survey &amp; Research Proposal</h2>
-            <p class="version">Version: ${VERSION}</p>
-            <div class="doc">
-              <a href="VT-PhD-Qualifier.pdf">📄 Qualifier Paper (IEEE Format)</a>
-              <p>5-6 page literature survey and research proposal</p>
+
+            <header>
+              <h1>Agentic AI for Autonomous Research: A Literature Survey and Research Proposal</h1>
+              <div class="author">DJ Turner</div>
+              <div class="affiliation">Department of Computer Science, Virginia Tech</div>
+              <div class="qualifier-badge">PhD Qualifying Examination</div>
+            </header>
+
+            <div class="download-bar">
+              <a href="VT-PhD-Qualifier.pdf">Download Full Paper (PDF)</a>
             </div>
-            <hr>
-            <p><small>Last updated: ${{ steps.version.outputs.date }}</small></p>
+
+            <main>
+
+              <div class="section">
+                <h2>Overview</h2>
+                <p>
+                  Large language models have moved beyond isolated text generation into a new operational role: as components of <em>semi-autonomous agentic systems</em> that perceive research contexts, invoke external tools, and coordinate multi-step workflows with limited human oversight. This paper synthesizes recent work spanning agentic architectures for scientific discovery, knowledge graph&ndash;based retrieval systems, empirical standards for software engineering research, methodological guidelines for LLM-based studies, and mechanistic interpretability.
+                </p>
+                <div class="callout">
+                  Architectural capability has advanced rapidly, yet the mechanisms for ensuring persistence, traceability, and evaluability have not matured at the same pace.
+                </div>
+              </div>
+
+              <div class="section">
+                <h2>Three Structural Gaps</h2>
+                <p>The synthesis surfaces three interdependent categories of unresolved challenge:</p>
+                <div class="gaps">
+                  <div class="gap-card">
+                    <h3>Architectural</h3>
+                    <p>No existing system tightly integrates persistent knowledge graphs with autonomous multi-agent research workflows. Current systems either maintain structured knowledge without agentic reasoning, or reason autonomously without persistent state.</p>
+                  </div>
+                  <div class="gap-card">
+                    <h3>Evaluation</h3>
+                    <p>No validated evaluation framework addresses AI-generated research outputs. Existing empirical standards predate autonomous research agents, and current evaluations lack operationalized constructs, baselines, and inter-rater reliability.</p>
+                  </div>
+                  <div class="gap-card">
+                    <h3>Provenance</h3>
+                    <p>No generalizable mechanism enforces the traceable linkage between generated claims and their supporting evidence. When an agentic system produces a research claim, it currently cannot be traced back to specific source evidence.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="section">
+                <h2>Proposed Architecture</h2>
+                <p>
+                  We propose <em>agentic knowledge graphs for research progression</em>: a provenance-first architecture that embeds span-level evidence alignment into persistent, structured knowledge infrastructure.
+                </p>
+                <div class="architecture">
+                  <div class="arch-layer top">Agentic Orchestration Layer</div>
+                  <div class="arch-arrow">&darr; &uarr;</div>
+                  <div class="arch-layer mid">Automation &amp; Extraction Layer</div>
+                  <div class="arch-arrow">&darr; &uarr;</div>
+                  <div class="arch-layer bottom">Knowledge Representation Layer</div>
+                  <div class="arch-label">Provenance enforcement spans all three layers</div>
+                </div>
+                <p style="margin-top: 1rem;">
+                  Research problems are modeled as first-class knowledge graph entities linked through semantic relations (<em>extends</em>, <em>contradicts</em>, <em>depends-on</em>). Every generated claim is linked to specific source passages via span-level evidence alignment, and entity references are resolved through canonicalization auditing.
+                </p>
+              </div>
+
+              <div class="section">
+                <h2>Expected Contributions</h2>
+                <div class="contributions">
+                  <div class="contrib-card">
+                    <div class="number">1</div>
+                    <h3>Reference Architecture</h3>
+                    <p>A provenance-enforcing architecture integrating persistent knowledge graphs with multi-agent workflows, with research problems as first-class entities linked by explicit semantic relations.</p>
+                  </div>
+                  <div class="contrib-card">
+                    <div class="number">2</div>
+                    <h3>Evaluation Framework</h3>
+                    <p>Four evaluation dimensions: extraction reliability, retrieval quality, progression utility, and claim-evidence faithfulness&mdash;providing operationalized constructs for agentic research outputs.</p>
+                  </div>
+                  <div class="contrib-card">
+                    <div class="number">3</div>
+                    <h3>Reproducibility Protocol</h3>
+                    <p>A specification of what artifacts must be preserved&mdash;KG snapshots, agent logs, provenance chains, human validation decisions&mdash;to enable independent verification.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="section">
+                <h2>Papers Reviewed</h2>
+                <ol class="papers-list">
+                  <li><span class="paper-num">1.</span> Ralph et al. (2021) &mdash; Empirical Standards for Software Engineering Research</li>
+                  <li><span class="paper-num">2.</span> Sharkey et al. (2025) &mdash; Open Problems in Mechanistic Interpretability</li>
+                  <li><span class="paper-num">3.</span> Trinkenreich et al. (2025) &mdash; Using LLMs for Software Engineering Research</li>
+                  <li><span class="paper-num">4.</span> Baltes et al. (2025) &mdash; Guidelines for Empirical Studies in SE involving LLMs</li>
+                  <li><span class="paper-num">5.</span> Villaescusa-Navarro et al. (2025) &mdash; The Denario Project: Deep Knowledge AI Agents</li>
+                  <li><span class="paper-num">6.</span> Suryawanshi et al. (2025) &mdash; KG-based RAG for Cross-Document Information Extraction</li>
+                </ol>
+              </div>
+
+            </main>
+
+            <footer>
+          HEREDOC
+
+          # Append the dynamic date and close the HTML
+          echo "      Last built: ${BUILD_DATE}" >> public/index.html
+          cat >> public/index.html << 'HEREDOC'
+            </footer>
+
           </body>
           </html>
-          EOF
+          HEREDOC
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -100,9 +442,6 @@ jobs:
 
             ## Document
             - **VT-PhD-Qualifier** - IEEE Conference Paper (5-6 pages)
-
-            ## Quick Access
-            📎 GitHub Pages: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
           files: |
             proposal/VT-PhD-Qualifier-${{ steps.version.outputs.version }}.pdf
           draft: false

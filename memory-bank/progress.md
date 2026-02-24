@@ -123,6 +123,20 @@ Introduction and Gate 3 complete. Remaining: conclusion, abstract, polish.
 
 ---
 
+### Sprint 3 Task 6: Conclusion (2026-02-24)
+
+**What:**
+- Wrote conclusion in `proposal/sections/05-conclusion.tex` (~0.25 pages)
+- 3 paragraphs: infrastructure gap framing, provenance-first architecture, scope/limitations
+- No new citations introduced; echoes introduction framing
+- Refined intro: consolidated citations, em-dashes, tightened framing
+- Added `.gitignore` for LaTeX build artifacts
+
+**Impact:**
+Conclusion complete. All content sections done except abstract. Next: Task 7 (abstract), then polish.
+
+---
+
 ## In Progress
 
 ### Sprint 1: Paper Selection and Reading
@@ -143,7 +157,7 @@ Introduction and Gate 3 complete. Remaining: conclusion, abstract, polish.
 
 ## Remaining Work
 
-1. **Sprint 3: Research Proposal & Paper Completion** - ~~Proposal~~, ~~intro~~, conclusion, abstract, polish (Quality Gates 3-4)
+1. **Sprint 3: Research Proposal & Paper Completion** - ~~Proposal~~, ~~intro~~, ~~conclusion~~, abstract, polish (Quality Gates 3-4)
 2. **Sprint 4: Presentation** - 14-slide deck, rehearsal, Q&A prep (Quality Gate 5)
 
 ---
