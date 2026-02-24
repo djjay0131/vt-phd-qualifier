@@ -108,6 +108,21 @@ Research proposal complete. Flows directly from three-gap taxonomy in literature
 
 ---
 
+### Sprint 3 Tasks 4-5: Gate 3 + Introduction (2026-02-24)
+
+**What:**
+- Ran Quality Gate 3: 6/7 criteria passed, page count flag (proposal ~1.5-2 pages vs 1.25 target) deferred to polish phase
+- Wrote introduction in `proposal/sections/02-introduction.tex` (~0.5 pages)
+- 4 paragraphs: broad context, infrastructure challenge + key terms, paper purpose, roadmap
+- All 6 papers cited in introduction with balanced distribution
+- Defines provenance and evidence alignment, research progression
+- No cliche opening; semi-autonomous framing throughout
+
+**Impact:**
+Introduction and Gate 3 complete. Remaining: conclusion, abstract, polish.
+
+---
+
 ## In Progress
 
 ### Sprint 1: Paper Selection and Reading
@@ -128,7 +143,7 @@ Research proposal complete. Flows directly from three-gap taxonomy in literature
 
 ## Remaining Work
 
-1. **Sprint 3: Research Proposal & Paper Completion** - ~~Proposal~~, intro, conclusion, abstract, polish (Quality Gates 3-4)
+1. **Sprint 3: Research Proposal & Paper Completion** - ~~Proposal~~, ~~intro~~, conclusion, abstract, polish (Quality Gates 3-4)
 2. **Sprint 4: Presentation** - 14-slide deck, rehearsal, Q&A prep (Quality Gate 5)
 
 ---
