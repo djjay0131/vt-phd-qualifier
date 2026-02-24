@@ -53,6 +53,7 @@
 
 ### Citation Integration
 - Every claim backed by citation
+- Citations are NOT limited to the 6 selected papers — papers cited within those works can also be referenced for supporting claims
 - Use comparative language: "While [X] proposes..., [Y] takes a different approach..."
 - Cluster related citations: "Several works address this challenge \cite{a, b, c}"
 - Highlight where papers agree and disagree
@@ -80,3 +81,4 @@
 - No orphan/widow lines
 - Clean LaTeX compilation
 - All citations resolve
+- Always regenerate the PDF after every edit to .tex files
