@@ -6,7 +6,14 @@
 
 The gap analysis in Section~\ref{sec:lit-synthesis} identified three interdependent categories of unresolved challenge: (a)~no existing system tightly integrates persistent knowledge graphs with autonomous multi-agent research workflows; (b)~no validated evaluation framework addresses AI-generated research outputs; and (c)~no generalizable mechanism enforces provenance---the traceable linkage between a generated claim and the specific evidence that supports it. These gaps form a cycle: without persistent knowledge infrastructure, provenance tracking is infeasible; without provenance, rigorous evaluation is impossible; and without evaluation criteria, architectural design lacks a target to optimize against.
 
-We propose to break this cycle by addressing provenance and architectural integration simultaneously. The central research question is: \emph{How can semi-autonomous agentic research systems enforce span-level evidence alignment and canonicalization auditing across documents, such that every generated output is traceable to specific source evidence within persistent, structured knowledge infrastructure?} Existing systems either maintain structured knowledge without agentic reasoning (KG-RAG~\cite{suryawanshi2025kgrag}) or reason autonomously without structured provenance (Denario~\cite{villaescusa2025denario}). Neither supports what we term \emph{research progression}: the structured continuation, evaluation, and validation of research problems across sessions and documents. The proposed research addresses this gap directly.
+We propose to break this cycle by addressing provenance and architectural integration simultaneously. The central research question is: \emph{Can an agentic knowledge graph system improve the persistence, traceability, and evaluability of research problem progression compared to existing retrieval-based approaches?} This question decomposes into four evaluation axes:
+\begin{itemize}
+\item[\textbf{E1}] Does span-level evidence alignment improve claim-to-source traceability over unstructured RAG baselines?
+\item[\textbf{E2}] Does canonicalization auditing produce entity resolutions consistent with human expert judgment?
+\item[\textbf{E3}] Does persistent graph infrastructure support cumulative research progression across sessions?
+\item[\textbf{E4}] Can provenance completeness and faithfulness be measured reliably enough to serve as evaluation criteria?
+\end{itemize}
+Existing systems either maintain structured knowledge without agentic reasoning (KG-RAG~\cite{suryawanshi2025kgrag}) or reason autonomously without structured provenance (Denario~\cite{villaescusa2025denario}). Neither supports what we term \emph{research progression}: the structured continuation, evaluation, and validation of research problems across sessions and documents.
 
 \subsection{Proposed Approach}
 \label{sec:proposal-approach}
@@ -19,7 +26,9 @@ We propose \emph{agentic knowledge graphs for research progression}: a provenanc
 
 \textbf{Agentic orchestration layer.} Specialized agents operate over the structured graph to support research progression. Adapting Denario's~\cite{villaescusa2025denario} Planning \& Control pattern, the orchestration layer introduces role-specific agents: \emph{ranking agents} prioritize problems by tractability and evidence strength; \emph{continuation agents} propose follow-on experiments or analyses grounded in problem context; \emph{evaluation agents} execute reproducible workflows; and \emph{synthesis agents} write results back into the graph as new structured artifacts. Crucially, agents consume and produce structured graph objects rather than free text, and each agent handoff carries provenance constraints requiring downstream agents to inherit and extend the evidence chains established upstream. Consistent with the recommendations of Trinkenreich et al.~\cite{trinkenreich2025train} and Denario's authors~\cite{villaescusa2025denario}, human researchers validate outputs at defined checkpoints, ensuring the system augments rather than replaces research judgment.
 
-This closed-loop design---where extracted problems are ranked, extended, evaluated, and written back into the graph---transforms the knowledge graph from a static repository into an active substrate for research progression. What is novel is the tight integration: enforcing span-level provenance as an architectural constraint across all three layers, rather than treating knowledge representation and agentic reasoning as separate concerns. Unlike traditional RAG systems, which retrieve documents per query without persistent state, this architecture maintains canonical entity resolution across documents, preserves cross-session knowledge evolution, enforces provenance inheritance across agent handoffs, and constructs claims from validated graph objects rather than unstructured retrieval context.
+\textbf{Evaluability infrastructure.} The architecture incorporates evaluability as a design-time concern rather than a post-hoc measurement. Span-level evidence alignment produces a measurable \emph{provenance completeness score}: the fraction of generated claims linked to specific source passages versus those lacking traceable evidence. Canonicalization auditing yields \emph{consistency metrics} by comparing system-resolved entity mappings against human expert judgments. \emph{Problem support density}---the number of independent evidence spans supporting each research problem node---quantifies how well-grounded a problem formulation is. Finally, \emph{conflict detection} flags cases where linked evidence spans contain contradictory claims, surfacing tensions that require human adjudication. Together, these mechanisms ensure that the system's outputs are not only traceable but continuously assessable.
+
+This closed-loop design---where extracted problems are ranked, extended, evaluated, and written back into the graph---transforms the knowledge graph from a static repository into a cumulative substrate for machine-mediated research evolution, in which structured problems, validated evidence chains, and derived artifacts persist across sessions and can be extended over time. What is novel is the tight integration: enforcing span-level provenance as an architectural constraint across all three layers, rather than treating knowledge representation and agentic reasoning as separate concerns. Unlike traditional RAG systems, which retrieve documents per query without persistent state, this architecture maintains canonical entity resolution across documents, preserves cross-session knowledge evolution, enforces provenance inheritance across agent handoffs, and constructs claims from validated graph objects rather than unstructured retrieval context.
 
 \subsection{Expected Contributions}
 \label{sec:proposal-contributions}
@@ -32,7 +41,52 @@ This research program advances three primary contributions, each addressing a sp
 
 \emph{Third}, a reproducibility protocol for provenance-enforcing agentic research, specifying what artifacts must be preserved---knowledge graph snapshots, agent interaction logs, provenance chains, human validation decisions---to enable independent verification of research outputs. This protocol extends the reporting guidelines of Baltes et al.~\cite{baltes2025guidelines} to the specific case of autonomous research agents.
 
+\subsection{Evaluation Framework and Validation Matrix}
+\label{sec:proposal-evaluation}
+
+The proposed system will be evaluated along four primary dimensions corresponding to the evaluation axes defined in Section~\ref{sec:proposal-problem}: span-level evidence alignment (E1), canonicalization consistency (E2), traceability completeness (E1, E4), and persistence under evolving literature (E3). Each dimension targets a specific architectural claim, is paired with a concrete evaluation method and quantitative metric, and is compared against a defined baseline. Table~\ref{tab:validation-matrix} summarizes this mapping.
+
+\begin{table*}[t]
+\centering
+\caption{Validation matrix mapping architectural claims to evaluation methods, metrics, and baselines.}
+\label{tab:validation-matrix}
+\small
+\begin{tabular}{@{}p{2.6cm}p{3.2cm}p{3.4cm}p{2.8cm}p{3.0cm}@{}}
+\toprule
+\textbf{Claim / Property} & \textbf{Mechanism} & \textbf{Evaluation Method} & \textbf{Metric} & \textbf{Baseline} \\
+\midrule
+Span-level evidence alignment &
+Explicit linkage between KG nodes and source text spans &
+Comparison against human-annotated gold standard &
+Precision, Recall, F1 &
+Vector DB + RAG without span alignment \\
+\addlinespace
+Canonicalization consistency &
+Problem canonicalization and structured entity resolution &
+Comparison to expert-labeled canonical clusters &
+Cohen's $\kappa$, clustering agreement &
+Embedding-based clustering \\
+\addlinespace
+Traceability completeness &
+Provenance chains linking claims to source documents &
+Evidence chain verification audit &
+\% of nodes with complete traceable provenance &
+Standard RAG without structured provenance \\
+\addlinespace
+Persistence over time &
+Versioned KG with incremental updates &
+Longitudinal experiment across evolving corpus &
+Stability score, change detection accuracy &
+Static snapshot-based system \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Human validation will be incorporated at each evaluation stage: annotators will label gold-standard evidence spans, independently resolve canonical entities, and audit provenance chains for completeness. All experiments will report model versions, prompt templates, and hyperparameters; comparisons will include at least one open-weight model baseline to enable independent replication. Reproducibility artifacts---extraction prompts, agent logs, knowledge graph snapshots, and human validation decisions---will be archived.
+
+This dissertation evaluates the framework primarily within software engineering research progression, using SE publication corpora as the primary testbed and leveraging the empirical standards of Ralph et al.~\cite{ralph2021empirical} and Baltes et al.~\cite{baltes2025guidelines} as evaluation anchors. Limited cross-domain validation with one additional field will assess generalizability of the provenance-enforcement patterns. Full automation of general-purpose research progression is outside the scope of this work.
+
 \subsection{Scope and Limitations}
 \label{sec:proposal-limitations}
 
-This proposal targets provenance-enforced research progression specifically; it does not claim to solve the broader challenges of autonomous scientific discovery. Although the proposed architecture uses knowledge graphs as its primary substrate, the core provenance-enforcement principles---span-level evidence alignment, canonicalization auditing, and structured agent handoffs---are not inherently KG-specific and may extend to hybrid or alternative persistent knowledge representations as the field evolves. The system remains bounded by the distribution of its source literature and the parametric knowledge of its underlying LLMs---it can organize, trace, and validate existing knowledge more reliably, but it does not generate genuinely novel hypotheses beyond what its evidence base supports. Extraction accuracy depends on LLM reliability and paper quality; implicit or ambiguous claims may resist structured extraction despite schema validation and human review. Mechanistic interpretability~\cite{sharkey2025mechanistic} may eventually provide deeper insight into agent decision-making, but the proposed architecture addresses provenance at the architectural level rather than at the model-internal level. Finally, the human-in-the-loop design deliberately trades full autonomy for verifiability---a constraint we view as appropriate given the current maturity of agentic research systems.
+This proposal targets provenance-enforced research progression specifically; it does not claim to solve the broader challenges of autonomous scientific discovery. The system remains bounded by the distribution of its source literature and the parametric knowledge of its underlying LLMs---it can organize, trace, and validate existing knowledge more reliably, but it does not generate genuinely novel hypotheses beyond what its evidence base supports. Extraction accuracy depends on LLM reliability and paper quality; implicit or ambiguous claims may resist structured extraction despite schema validation and human review. Mechanistic interpretability~\cite{sharkey2025mechanistic} may eventually provide deeper insight into agent decision-making, but the proposed architecture addresses provenance at the architectural level rather than at the model-internal level. Finally, the human-in-the-loop design deliberately trades full autonomy for verifiability---a constraint we view as appropriate given the current maturity of agentic research systems.
