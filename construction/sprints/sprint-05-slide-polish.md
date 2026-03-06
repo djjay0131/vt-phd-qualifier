@@ -2,7 +2,7 @@
 
 **Sprint Goal:** Bring slides 2-20 to presentation-ready state by inserting speaker notes from `files/slides.md`, tightening body text, and adding or improving a TikZ diagram or image-based visual on every slide.
 **Start Date:** 2026-03-05
-**Status:** In Progress (S12 next)
+**Status:** COMPLETE — All slides S02-S20 polished, image replacements done, VT logo added, 33 pages clean
 
 **Prerequisites:**
 - `presentation/main.tex` exists with all 20 slides scaffolded
@@ -96,6 +96,7 @@
 - [x] Notes written and approved (automation gap, KGs+LLMs integration)
 - [x] Italicized conclusion line added below columns
 - [x] TikZ KG diagram: 4 nodes (Paper, Problem, Evidence, Method) with labeled edges, myOrange palette
+- [x] TikZ replaced with kg_research.jpg (overlapping edge labels fixed via image)
 
 ---
 
@@ -126,158 +127,122 @@
 - [x] Notes written and approved (four-adjective fragmentation framing, expanded 4 paragraphs)
 - [x] Four-word adjective labels: unstructured, static, amnesic, short-term (shifted to avoid circles)
 - [x] TikZ Venn: VT colors (myRed/myOrange), GAP node centered with myRed border, labels at y=±2.0/±0.8
+- [x] TikZ Venn replaced with cross_cutting_gaps.jpg + two-column bullet layout (Retrieval/Graphs/Agents/Evaluation)
 
 ---
 
-### Task S12: Slide 12 - Positioning My Work
+### Task S12: Slide 12 - Positioning My Work ✅
 
 **Section:** Synthesis
 
-- [ ] Insert `\note{...}` block sourced from `files/slides.md` Slide 12 speaker notes (intersection of agents + KGs, span-level traceability, stronger evaluation, SE focus, longitudinal)
-- [ ] Polish: the "Intersection" block text is already good; ensure the three refinement bullets are parallel in grammatical form
-- [ ] Add a TikZ puzzle-piece diagram: a jigsaw piece labeled "Agentic KGs" slotting into a notch in a larger rectangle; the notch is labeled "The Gap"; use myOrange fill for the piece
-
-**Acceptance Criteria:**
-- Note block present and introduces span-level traceability as the key positioning claim
-- Puzzle-piece TikZ is present and uses theme colors
-- The three refinement bullets are grammatically parallel
+- [x] Notes written and approved (intersection of agents + KGs, span-level traceability, stronger evaluation, SE focus, longitudinal)
+- [x] Two-column layout: bullets left, positioning_my_work.jpg right
+- [x] Three refinement bullets grammatically parallel
 
 ---
 
-### Task S13: Slide 13 - Proposed Architecture
+### Task S13: Slide 13 - Proposed Architecture ✅
 
 **Section:** Proposal
 
-- [ ] Insert `\note{...}` block sourced from `files/slides.md` Slide 13 speaker notes (persistent research state loop, shared KG as source of truth, human oversees)
-- [ ] Polish: in the block below the diagram, verify "Source of Truth" is bolded; remove any redundant label duplicating the diagram arrows
-- [ ] Verify existing Human-Agent-KG TikZ loop diagram: confirm the "oversee" dashed arrow from human to KG is present and labeled; if the diagram clips or overlaps the block below, reduce node spacing
-
-**Acceptance Criteria:**
-- Note block present and articulates the loop concept (human queries, agent writes, KG stores, agent reads back)
-- TikZ loop compiles without overfull hbox warnings
-- "Source of Truth" is bolded in the block
+- [x] Notes written and approved (persistent research state loop, shared KG as source of truth, human oversees)
+- [x] Two-column: TikZ loop left, block right (fixed cut-off bullet issue)
+- [x] "Source of Truth" bolded in block
 
 ---
 
-### Task S14: Slide 14 - Core Innovation
+### Task S13b: Slide 13b - Problem Extraction & Ranking ✅ (NEW)
+
+**Section:** Proposal (inserted between S13 and S14)
+
+- [x] New slide added to cover problem extraction/ranking step
+- [x] Two-column: bullets left, TikZ paper→ranked problem nodes right
+- [x] TikZ replaced with problem_extraction.jpg
+- [x] Kept brief (low time allocation in 15-min talk)
+
+---
+
+### Task S14: Slide 14 - Core Innovation ✅
 
 **Section:** Proposal
 
-- [ ] Insert `\note{...}` block sourced from `files/slides.md` Slide 14 speaker notes (span-level vs. chunk-level RAG, canonicalization agent, de-duplication, full audit trail)
-- [ ] Polish: reorder the three enumerated items so Span-level alignment is first, Canonicalization Agent second, Versioned provenance third (matches speaker notes order)
-- [ ] Improve existing Document-to-Graph TikZ: add a provenance chain annotation - a dashed line from the highlighted span back to the graph node labeled "provenance"; add a small second graph node connected to the first, labeled "Canonicalized"
-
-**Acceptance Criteria:**
-- Note block present and explains the span-level distinction from standard RAG
-- Provenance chain dashed line is visible in the diagram
-- Enumerated items are in the order: alignment, canonicalization, provenance
+- [x] Notes written and approved (span-level vs. chunk-level RAG, canonicalization agent)
+- [x] Provenance chain dashed line added to TikZ
+- [x] Canonicalized node added to diagram
+- [x] TikZ replaced with core_innovation.jpg
 
 ---
 
-### Task S15: Slide 15 - Evaluation Framework
+### Task S15: Slide 15 - Evaluation Framework ✅
 
 **Section:** Evaluation
 
-- [ ] Insert `\note{...}` block sourced from `files/slides.md` Slide 15 speaker notes (four metrics: alignment P/R/F1, canonicalization kappa, traceability audit, persistence retention over 4 weeks)
-- [ ] Polish: add a column header row to the table using `\rowcolor` or `\textbf` to visually differentiate the header; keep the exampleblock question
-- [ ] Add a small TikZ icon bar alongside or above the table: four small icons representing each claim (magnifier for alignment, merge symbol for canonicalization, chain link for traceability, clock for persistence), each labeled with the claim name
-
-**Acceptance Criteria:**
-- Note block present and walks through all four metrics in the table's order
-- Table header row is visually distinct
-- Icon bar or equivalent visual is present (TikZ acceptable)
+- [x] Notes written and approved (four metrics: alignment P/R/F1, kappa, traceability audit, persistence)
+- [x] Icon bar above table (magnifier, merge, chain, clock)
+- [x] "Key Question" block uses block (not exampleblock green)
 
 ---
 
-### Task S16: Slide 16 - Experimental Design Overview
+### Task S16: Slide 16 - Experimental Design Overview ✅
 
 **Section:** Evaluation
 
-- [ ] Insert `\note{...}` block sourced from `files/slides.md` Slide 16 speaker notes (4-week longitudinal study, annotated SE papers, synthetic duplicate injection, human audit)
-- [ ] Polish: add a one-line activity descriptor next to each week marker in the text column (e.g., "Week 1: Dataset construction", "Week 2: Injection + baseline", etc.)
-- [ ] Improve existing vertical timeline TikZ: add activity labels to the right of each week dot (e.g., "Baseline + Dataset", "Injection Study", "Canonicalization Audit", "Retention Test"); add a horizontal bracket spanning all four weeks labeled "Longitudinal Window"
-
-**Acceptance Criteria:**
-- Note block present and covers all four experimental components
-- Timeline TikZ has labeled activity annotations per week
-- "Longitudinal Window" bracket or equivalent is present
+- [x] Notes written and approved (4-week longitudinal, annotated SE papers, synthetic duplicates, human audit)
+- [x] experimental_design.jpg in right column
+- [x] Bullets shortened to 2-3 words each
+- [x] 4-week justification and post-build timing explained in notes
 
 ---
 
-### Task S17: Slide 17 - Contributions
+### Task S17: Slide 17 - Contributions ✅
 
 **Section:** Contributions
 
-- [ ] Insert `\note{...}` block sourced from `files/slides.md` Slide 17 speaker notes (three contributions: formal definition, curation protocol, reference infrastructure)
-- [ ] Polish: add a short phrase after each contribution bullet clarifying the target audience or artifact type (e.g., "Formal definition - foundational vocabulary for the field")
-- [ ] Add a TikZ three-icon row below the enumerated list: three spaced symbols - a scroll/document (formal definition), a gear (protocol), a server/cylinder (infrastructure) - each labeled with the contribution name using the myOrange accent color
-
-**Acceptance Criteria:**
-- Note block present and maps each contribution to its type (definition, protocol, infrastructure)
-- Three-icon TikZ row is present and uses consistent sizing
-- Icons are recognizable without detailed rendering (simple geometric shapes are fine)
+- [x] Notes written and approved
+- [x] "Formal definition" reframed as "Span-level traceability specification" (more defensible)
+- [x] Three-icon TikZ (scroll, gear, server) with myOrange labels
 
 ---
 
-### Task S18: Slide 18 - Near-Term Work
+### Task S18: Slide 18 - Near-Term Work ✅
 
 **Section:** Contributions
 
-- [ ] Insert `\note{...}` block sourced from `files/slides.md` Slide 18 speaker notes (evaluation studies, artifact release, SE-domain deployment)
-- [ ] Polish: add a time horizon label to each bullet (e.g., "Months 1-6", "Month 6", "Year 1") to show sequencing
-- [ ] Add a TikZ roadmap graphic: a horizontal path with two labeled nodes - "Now" (current position marker, myRed filled circle) and "Next" (open circle, myOrange border) - connected by a thick arrow; annotate each node with the near-term work items
-
-**Acceptance Criteria:**
-- Note block present and covers evaluation, artifact release, and SE deployment
-- Roadmap TikZ has "Now" and "Next" markers with annotations
-- Time horizon labels appear on the bullet list
+- [x] Notes written and approved (evaluation, artifact release, SE deployment)
+- [x] Time horizon labels added (Months 1-6, 6-7, 7-8, Year 1)
+- [x] TikZ roadmap: filled myRed "Now" → thick arrow → open myOrange "Next"
 
 ---
 
-### Task S19: Slide 19 - Long-Term Vision
+### Task S19: Slide 19 - Long-Term Vision ✅
 
 **Section:** Contributions
 
-- [ ] Insert `\note{...}` block sourced from `files/slides.md` Slide 19 speaker notes (beyond SE, cross-domain, persistent AI research infrastructure, structured memory for scientific discovery)
-- [ ] Polish: add "e.g., Biology, Physics, Climate Science" as a parenthetical to the Cross-domain bullet, replacing the existing `\ldots` ellipsis
-- [ ] Add a TikZ horizon diagram: a horizontal line representing the horizon, with three domain icons above it (rectangles labeled "Biology", "Physics", "CS"), arranged at increasing distances to suggest expansion; a sun or glow effect behind the horizon using a filled arc
-
-**Acceptance Criteria:**
-- Note block present and uses the "foundation for persistent AI-assisted research" framing
-- Horizon TikZ with domain icons is present
-- Cross-domain bullet is more specific than the current form
+- [x] Notes written and approved (beyond SE, cross-domain synthesis framing)
+- [x] long_term_vision.jpg in right column
+- [x] Cross-domain bullet with (Biology, Physics, Climate Science)
 
 ---
 
-### Task S20: Slide 20 - Conclusion
+### Task S20: Slide 20 - Conclusion ✅
 
 **Section:** Conclusion
 
-- [ ] Insert `\note{...}` block sourced from `files/slides.md` Slide 20 speaker notes (from fragmented chat to persistent traceable state, infrastructure is the missing link, thank you)
-- [ ] Polish: the three bullets below the diagram are good; add a final emphasized line "Infrastructure is the missing link to AI-assisted discovery." as a standalone `\emph{}` or inside a block
-- [ ] Improve existing Chat-to-Persistent-State TikZ: add a subtitle label below the arrow ("via Agentic Knowledge Graphs"); ensure "Fragmented Chat" and "Persistent State" box sizes are equal and visually balanced on a 16:9 frame
-
-**Acceptance Criteria:**
-- Note block present and ends with a natural "thank you / questions" transition
-- "Infrastructure is the missing link" statement is visually prominent
-- TikZ arrow diagram is horizontally centered and balanced
+- [x] Notes written and approved (infrastructure is the missing link, thank you / questions)
+- [x] "Infrastructure is the missing link" as `\emph{}` prominent centered line
+- [x] TikZ improved: equal box sizes, subtitle "via Agentic Knowledge Graphs" under arrow
 
 ---
 
-### Task S21: Final Compile and Notes Verification
+### Task S21: Final Compile and Notes Verification ✅
 
-- [ ] Compile `presentation/main.tex` with `latexmk -pdf` and confirm zero errors
-- [ ] Temporarily enable `\setbeameroption{show notes}` and recompile; open PDF and verify:
-  - [ ] Each slide 2-20 shows a notes page
-  - [ ] No notes page is blank
-- [ ] Disable notes option and do a final clean compile
-- [ ] Update this sprint's task checkboxes to reflect completion
-- [ ] Update `memory-bank/phases.md` sprint reference if applicable
-
-**Acceptance Criteria:**
-- Zero LaTeX errors in final compile
-- Notes pages verified for all 19 slides (2-20)
-- Final PDF exported without notes option active
+- [x] main.pdf compiled cleanly (33 pages, zero errors, zero overfull warnings)
+- [x] main-notes.pdf compiled cleanly (33 pages, zero errors)
+- [x] Both PDFs reside in presentation/
+- [x] VT horizontal logo added to frametitle top-right on every slide (vt_logo_horiz.jpg)
+- [x] agentic_amnesia.jpg replaced with updated version
+- [x] Q&A Page 1 split from 5-item overflow frame into two frames (1a: S2/S7/S8, 1b: S9/S12)
+- [x] Print-ready PDFs generated via Ghostscript (main_print.pdf, main-notes_print.pdf)
 
 ---
 

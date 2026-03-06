@@ -1,8 +1,8 @@
 # Progress Tracking
 
-**Last Updated:** 2026-02-24
+**Last Updated:** 2026-03-06
 
-## Project Status: Sprint 3 -- Research Proposal & Paper Completion
+## Project Status: Sprint 5 COMPLETE — Presentation Fully Polished
 
 Sprints 1-2 complete. Literature review written, revised, and tightened. Three-gap taxonomy with provenance framing established. Now executing Sprint 3: write research proposal, introduction, conclusion, abstract, polish.
 
@@ -134,6 +134,30 @@ Introduction and Gate 3 complete. Remaining: conclusion, abstract, polish.
 
 **Impact:**
 Conclusion complete. All content sections done except abstract. Next: Task 7 (abstract), then polish.
+
+---
+
+
+### Sprint 5: Slide Polish (2026-03-05 to 2026-03-06)
+
+**What:**
+- Polished all slides S02-S20 with speaker notes, refined bullets, and visual assets
+- Replaced 4 TikZ diagrams with AI-generated images: kg_research.jpg (S8), cross_cutting_gaps.jpg (S11), problem_extraction.jpg (S13b), core_innovation.jpg (S14)
+- Added VT horizontal logo (vt_logo_horiz.jpg) to frametitle top-right on every slide via custom beamertemplate
+- Updated agentic_amnesia.jpg with improved image
+- Fixed Q&A overflow: split 5-item Page 1 into two frames (1a: S2/S7/S8, 1b: S9/S12)
+- Generated print-ready PDFs (main_print.pdf, main-notes_print.pdf) via Ghostscript for Acrobat compatibility
+
+**Key Deliverables:**
+- `presentation/main.tex` — 33 slides, fully polished
+- `presentation/main.pdf` — clean, 33 pages
+- `presentation/main-notes.pdf` — with speaker notes, 33 pages
+- `presentation/main_print.pdf` — Acrobat-printable (transparency flattened)
+- `presentation/main-notes_print.pdf` — Acrobat-printable notes version
+- `presentation/images/` — 12+ images including VT logo and all slide visuals
+
+**Impact:**
+Presentation fully presentation-ready. All slides have notes, visuals, and polished layouts. Zero overfull warnings. Print-ready PDFs available for Acrobat.
 
 ---
 
