@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 64" width="260" height="64" role="img" aria-label="VT PhD Qualifier">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6b1835"/>
+      <stop offset="100%" stop-color="#861F41"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background pill -->
+  <rect width="260" height="64" rx="8" fill="url(#bg)"/>
+
+  <!-- VT block -->
+  <rect width="72" height="64" rx="8" fill="#5c1530"/>
+  <rect x="64" width="8" height="64" fill="#5c1530"/>
+
+  <!-- VT text -->
+  <text x="36" y="46"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="38"
+    font-weight="bold"
+    fill="white"
+    text-anchor="middle">VT</text>
+
+  <!-- Orange divider -->
+  <rect x="76" y="12" width="2" height="40" fill="#E5751F" opacity="0.7"/>
+
+  <!-- PhD -->
+  <text x="104" y="28"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="15"
+    font-weight="bold"
+    fill="white">PhD</text>
+
+  <!-- Qualifier -->
+  <text x="104" y="46"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="13"
+    fill="#E5751F"
+    letter-spacing="1.5"
+    font-weight="600">QUALIFIER</text>
+
+  <!-- Three small KG nodes -->
+  <circle cx="208" cy="22" r="3.5" fill="#E5751F" opacity="0.7"/>
+  <circle cx="226" cy="15" r="3.5" fill="white" opacity="0.4"/>
+  <circle cx="244" cy="22" r="3.5" fill="#E5751F" opacity="0.7"/>
+  <line x1="211" y1="21" x2="223" y2="16" stroke="#E5751F" stroke-width="1.2" opacity="0.5"/>
+  <line x1="229" y1="16" x2="241" y2="21" stroke="#E5751F" stroke-width="1.2" opacity="0.5"/>
+  <line x1="211.5" y1="23" x2="240.5" y2="23" stroke="white" stroke-width="0.8" opacity="0.2"/>
+
+  <!-- Virginia Tech -->
+  <text x="174" y="46"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="9"
+    fill="rgba(255,255,255,0.55)"
+    text-anchor="middle"
+    letter-spacing="0.8">VIRGINIA TECH</text>
+</svg>

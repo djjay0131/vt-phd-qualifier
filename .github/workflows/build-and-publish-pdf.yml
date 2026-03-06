@@ -50,6 +50,7 @@ jobs:
           mkdir -p public
           cp proposal/main.pdf public/VT-PhD-Qualifier.pdf
           cp presentation/main.pdf public/VT-PhD-Qualifier-Slides.pdf
+          cp assets/logo.svg public/logo.svg
 
       - name: Generate landing page
         run: |
@@ -60,6 +61,7 @@ jobs:
           <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta property="og:image" content="https://djjay0131.github.io/vt-phd-qualifier/logo.svg">
             <title>Agentic AI for Autonomous Research &mdash; Jason Cusati, Virginia Tech</title>
             <style>
               :root {
@@ -318,6 +320,7 @@ jobs:
           <body>
 
             <header>
+              <img src="logo.svg" alt="VT PhD Qualifier" style="height:52px; margin-bottom:1.2rem; display:block; margin-left:auto; margin-right:auto;">
               <h1>Agentic AI for Autonomous Research: A Literature Survey and Research Proposal</h1>
               <div class="author">Jason Cusati</div>
               <div class="affiliation">Department of Computer Science, Virginia Tech</div>
