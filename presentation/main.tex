@@ -1,0 +1,736 @@
+\documentclass[
+    11pt,
+    aspectratio=169,
+]{beamer}
+
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, shapes.misc, shapes.symbols, arrows.meta, positioning, calc, decorations.pathmorphing}
+
+%%% Citations
+\usepackage[style=authoryear, backend=bibtex]{biblatex}
+\addbibresource{references.bib}
+
+%%% Customize Theme %%%%%%%%%%%%%%%%%%%%%%
+\usetheme{Madrid}
+
+\definecolor{myRed}{RGB}{134,31,65}
+\definecolor{myOrange}{RGB}{229, 117, 31}
+
+\setbeamercolor*{structure}{bg=myRed!20,fg=myRed!90}
+\setbeamercolor*{palette primary}{use=structure,fg=white,bg=structure.fg}
+\setbeamercolor*{palette secondary}{use=structure,fg=myRed,bg=white}
+\setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=myRed}
+\setbeamercolor{frametitle}{bg=myRed!85,fg=white}
+\setbeamercolor*{titlelike}{parent=palette primary}
+\setbeamercolor{section in head/foot}{fg=myOrange, bg=white}
+
+%%% Specific Colors %%%
+\setbeamercolor{item projected}{bg=myOrange}
+\setbeamertemplate{enumerate items}{bg=myOrange}
+\setbeamercolor{itemize item}{fg=myOrange}
+\setbeamercolor{itemize subitem}{fg=myOrange}
+\setbeamercolor{button}{bg=myOrange}
+
+%%% TOC %%%
+\setbeamercolor{section in toc}{fg=black}
+\setbeamercolor{subsection in toc}{fg=black}
+
+%%% Block Colors %%%
+\setbeamercolor{block title}{bg=myOrange, fg=white}
+\setbeamercolor{block body}{bg=myOrange!20}
+\setbeamercolor{block title alerted}{bg=myOrange!90, fg=white}
+\setbeamercolor{block body alerted}{bg=myOrange!15}
+
+\ifdefined\shownotes
+  \usepackage{pgfpages}
+  \setbeameroption{show notes on second screen=right}
+\fi
+
+%---------------------------------------------------------
+%	FONT THEME & FONTS
+%---------------------------------------------------------
+\usefonttheme{default}
+\usepackage{palatino}
+\usepackage[default]{opensans}
+\useinnertheme{circles}
+
+%---------------------------------------------------------
+%	OUTER THEME
+%---------------------------------------------------------
+\useoutertheme{miniframes}
+
+%---------------------------------------------------------
+%	PRESENTATION INFORMATION
+%---------------------------------------------------------
+
+\title[VT PhD Qualifier]{Agentic Knowledge Graphs for\\Research Progression}
+\subtitle{PhD Qualifying Exam Presentation}
+\author[J. Cusati]{Jason Cusati}
+\institute[Virginia Tech]{Department of Computer Science \\ Virginia Tech \\ \smallskip \textit{djjay@vt.edu}}
+\date[Spring 2026]{Spring 2026}
+
+% \logo{\includegraphics[width=2.5cm]{vt-logo.png}}
+
+%---------------------------------------------------------
+%---------------------------------------------------------
+\begin{document}
+
+%---------------------------------------------------------
+%	TITLE SLIDE
+%---------------------------------------------------------
+\section{}
+\begin{frame}
+	\titlepage
+
+	\note{
+Good morning. I'm Jason Cusati, a PhD student working with Dr.\ Brown at the Code World No Blanket Lab here at Virginia Tech. The lab name is fitting, actually --- today I'm arguing that AI research systems need somewhere to put their knowledge, because right now they're working without a net. Or a blanket. Today's talk is Agentic Knowledge Graphs for Research Progression --- the academic way of saying: what if AI actually remembered what it learned, and could connect the dots --- not just within a single paper, but across a whole field of research?
+	}
+\end{frame}
+
+%---------------------------------------------------------
+%	TABLE OF CONTENTS
+%---------------------------------------------------------
+\begin{frame}
+	\frametitle{Outline}
+	\tableofcontents
+
+	\note{
+Here's the plan for the next 15 minutes. I'll start with the problem --- why current AI-assisted workflows keep starting from scratch. Then I'll survey five domains and show where the gaps are. From there I'll present the proposal: a provenance-first architecture that gives agents a persistent, structured memory. I'll close with the evaluation framework and contributions. Questions at the end --- I'm told there will be some, so I've been practicing my nervous smile.
+	}
+\end{frame}
+
+%---------------------------------------------------------
+%	SECTION 1: MOTIVATION
+%---------------------------------------------------------
+\section{Motivation}
+
+%--- Slide 1: The Structural Problem in AI-Assisted Research ---
+\begin{frame}{The Structural Problem in AI-Assisted Research}
+
+\begin{columns}[c]
+	\begin{column}{0.5\textwidth}
+		\begin{itemize}
+			\item Research reasoning is \textbf{fragmented} and \textbf{transient}\newline
+			\item LLM-assisted workflows \textbf{amplify volatility}\newline
+			\item \textbf{Structural memory} is missing
+		\end{itemize}
+	\end{column}
+	\begin{column}{0.47\textwidth}
+		\includegraphics[width=\linewidth]{ai_research_state_problem.png}
+	\end{column}
+\end{columns}
+
+\note{
+Current AI systems dramatically accelerate document generation and research exploration.
+
+However, they do not accumulate structured, validated, provenance-aware knowledge across iterations.
+
+Outputs are transient. Each interaction effectively starts from scratch.
+
+This work investigates how agentic systems combined with knowledge graphs can provide a persistent substrate for research progression.
+}
+
+\end{frame}
+
+%--- Slide 2: The Structural Gaps ---
+\begin{frame}
+	\frametitle{The Structural Gaps}
+
+	\begin{columns}[c]
+		\begin{column}{0.6\textwidth}
+			\begin{itemize}
+				\item \textbf{Persistence:} State beyond session boundaries\newline
+				\item \textbf{Traceability:} Linkage from Claim $\to$ Evidence\newline
+				\item \textbf{Evaluability:} Empirical measurement of progression
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.35\textwidth}
+			\begin{tikzpicture}[scale=0.65]
+				% Three pillars
+				\foreach \x/\label in {0/P, 1.5/T, 3/E} {
+					\draw[thick, fill=myRed!15] (\x,0) rectangle (\x+1,3);
+					\draw[thick, myOrange, decorate, decoration={zigzag, segment length=4, amplitude=2}] (\x,2.5) -- (\x+1,2.5);
+				}
+				\node[rotate=90] at (0.5,1.2) {\tiny Persistence};
+				\node[rotate=90] at (2,1.2) {\tiny Traceability};
+				\node[rotate=90] at (3.5,1.2) {\tiny Evaluability};
+			\end{tikzpicture}
+		\end{column}
+	\end{columns}
+
+	\vspace{0.5em}
+	\begin{center}
+		\emph{These are infrastructure problems, not model-quality problems.}
+	\end{center}
+
+	\note{
+This manifests as three specific structural gaps.
+
+First, Persistence: We lack state that survives beyond a single chat session.
+Second, Traceability: When an agent makes a claim, we often cannot trace it back to the specific evidence that supported it.
+Third, Evaluability: We lack the tools to empirically measure if our research knowledge is actually progressing over time.
+
+Crucially, these are infrastructure problems, not model quality problems. Better models won't fix this --- better architecture will.
+	}
+\end{frame}
+
+%--- Slide 3: Guiding Question ---
+\begin{frame}
+	\frametitle{Guiding Question}
+
+	\vspace{1.5em}
+	\begin{center}
+		\begin{tikzpicture}
+			% Chaotic docs
+			\node[cloud, draw=gray, fill=gray!10, cloud puffs=10, cloud puff arc=120, minimum width=2.5cm, minimum height=1.5cm] (chaos) at (0,0) {\footnotesize Docs};
+			% Bridge
+			\draw[-{Stealth[length=3mm]}, ultra thick, myOrange] (2,0) -- node[above]{\footnotesize Infrastructure} (6,0);
+			% Structured crystal
+			\node[diamond, draw=myRed, fill=myRed!15, minimum width=1.5cm, minimum height=1.5cm] (crystal) at (8,0) {\footnotesize State};
+		\end{tikzpicture}
+	\end{center}
+
+	\vspace{1em}
+	\begin{block}{}
+		\centering
+		\textbf{How can research state be made persistent, traceable, and empirically evaluable in AI-assisted workflows?}
+	\end{block}
+
+	\note{
+This leads to the guiding question of my proposal:
+
+How can we transform this ephemeral interaction into something solid? How can research state be made persistent, traceable, and empirically evaluable in AI-assisted workflows?
+
+To answer this, I've surveyed the current landscape to understand what pieces we already have --- and what is missing.
+	}
+\end{frame}
+
+%---------------------------------------------------------
+%	SECTION 2: LITERATURE SURVEY
+%---------------------------------------------------------
+\section{Literature Survey}
+
+%--- Slide 4: Landscape Overview ---
+\begin{frame}
+	\frametitle{Landscape Overview}
+
+	\begin{center}
+		\includegraphics[height=0.72\textheight, keepaspectratio]{landscape_overview.png}
+	\end{center}
+
+	\note{
+I surveyed five key domains that contribute to this problem.
+
+We look at Mechanistic Interpretability to understand how models represent knowledge internally.
+We look at RAG and Knowledge Graphs as two ways of representing knowledge externally.
+We look at Agentic Systems which act on that knowledge.
+And finally, Empirical Standards to understand how we should evaluate these systems.
+	}
+\end{frame}
+
+%--- Slide 5: Mechanistic Interpretability ---
+\begin{frame}
+	\frametitle{Mechanistic Interpretability}
+
+	\begin{columns}[c]
+		\begin{column}{0.46\textwidth}
+			\begin{itemize}
+				\setlength{\itemsep}{6pt}
+				\item Reverse-engineer the black box \textbf{\footcite{sharkey2025mechanistic}}
+				\item Sparse features $\to$ human-interpretable structure
+				\item Tells us \emph{how} a model thinks
+			\end{itemize}
+			\vspace{0.6em}
+			\begin{alertblock}{Limitation}
+				\small Static weights only --- no writable memory for new research state.
+			\end{alertblock}
+		\end{column}
+		\begin{column}{0.50\textwidth}
+			\includegraphics[width=\linewidth]{mechanistic_interpretability.png}
+		\end{column}
+	\end{columns}
+
+	\note{
+Starting with Mechanistic Interpretability, work by Sharkey et al. focuses on reverse-engineering the black box.
+
+Techniques like sparse dictionary learning allow us to decompose model weights into understandable features. This is critical for understanding how a model thinks.
+
+However, the limitation is that this focuses on the model's internal, static weights. It does not provide a mechanism for storing new research state that an agent generates during a workflow.
+	}
+\end{frame}
+
+%--- Slide 6: Concept-Based Interpretability ---
+\begin{frame}
+	\frametitle{Concept-Based Interpretability}
+
+	\begin{columns}[c]
+		\begin{column}{0.65\textwidth}
+			\includegraphics[width=\linewidth]{concept_interpretability.png}
+		\end{column}
+		\begin{column}{0.32\textwidth}
+			\begin{alertblock}{Limitation}
+				\small Read-only --- no mechanism to encode new research state.
+			\end{alertblock}
+		\end{column}
+	\end{columns}
+
+	\note{
+Concept-based interpretability takes a different angle. Instead of looking at circuits and weights, it asks: can we find directions in the model's latent space that align with human-readable concepts --- like ``Biology'' or ``Code''?
+
+And the answer is kind of yes. Probes can find those directions. But what we're really measuring is what the model learned from its training data. It's sophisticated pattern matching on frozen knowledge.
+
+The problem is that probing is fundamentally read-only. It tells us what the model baked in during training --- not what we discovered in this session. Close the tab, and it's gone.
+	}
+\end{frame}
+
+%--- Slide 7: RAG & Vector Memory Systems ---
+\begin{frame}
+	\frametitle{RAG \& Vector Memory Systems}
+
+	\begin{columns}[c]
+		\begin{column}{0.63\textwidth}
+			\includegraphics[width=\linewidth]{rag_vs_kg.jpg}
+		\end{column}
+		\begin{column}{0.34\textwidth}
+			\begin{alertblock}{Limitations \footcite{suryawanshi2025kgrag}}
+				\begin{itemize}
+					\setlength{\itemsep}{4pt}
+					\item No canonical memory
+					\item No provenance chain
+					\item No structured reasoning
+					\item No longitudinal state
+				\end{itemize}
+			\end{alertblock}
+		\end{column}
+	\end{columns}
+
+	\note{
+RAG is the go-to for external memory right now, and for good reason --- it scales, it's fast, and semantic similarity gets you surprisingly far.
+
+But Suryawanshi et al. point out the ceiling: vector retrieval gives you chunks, not structure. Similarity, not reasoning.
+
+And critically, there's no canonical memory. Ask the same question after new papers drop and you get a different answer. No provenance chain --- you can't trace a generated claim back to the specific text that justified it.
+	}
+\end{frame}
+
+%--- Slide 8: Knowledge Graph Research ---
+\begin{frame}
+	\frametitle{Knowledge Graph Research}
+
+	\begin{columns}[t]
+		\begin{column}{0.45\textwidth}
+			\begin{block}{Strengths}
+				\begin{itemize}
+					\item Ontology-based structure
+					\item Provenance modeling
+					\item Logical relationships
+				\end{itemize}
+			\end{block}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{alertblock}{Limitations}
+				\begin{itemize}
+					\item Manual curation
+					\item Static graphs
+					\item No automated maintenance
+				\end{itemize}
+			\end{alertblock}
+		\end{column}
+	\end{columns}
+
+	\vspace{0.4em}
+	\begin{center}
+	\begin{tikzpicture}[
+		scale=0.72,
+		every node/.style={font=\scriptsize},
+		box/.style={draw, rounded corners=3pt, fill=myOrange!25, inner sep=4pt, minimum width=1.3cm},
+		arr/.style={->, thick, color=myOrange!80}
+	]
+		\node[box] (paper)    at (0, 0)     {Paper};
+		\node[box] (problem)  at (2.4, 0)   {Problem};
+		\node[box] (evidence) at (4.8, 0)   {Evidence};
+		\node[box] (method)   at (2.4, -1.1) {Method};
+
+		\draw[arr] (paper)   -- (problem)  node[midway, above, font=\tiny] {defines};
+		\draw[arr] (problem) -- (evidence) node[midway, above, font=\tiny] {cites};
+		\draw[arr] (paper)   -- (method)   node[midway, left,  font=\tiny] {uses};
+		\draw[arr] (method)  -- (evidence) node[midway, right, font=\tiny] {supports};
+	\end{tikzpicture}
+	\end{center}
+
+	\note{
+Knowledge Graphs offer exactly the structure that RAG lacks --- explicit ontologies, logical relationships, and provenance modeling baked in. Suryawanshi et al. show how this enables cross-document reasoning that vector retrieval simply can't do.
+
+But traditional KGs are high-friction. They require domain experts to curate them manually, they're static snapshots, and they don't evolve as the literature grows. A graph built today is already stale tomorrow.
+
+The gap is automation. We have structure from KGs and we have automation from LLMs --- but they're rarely integrated in a way that lets the graph actually evolve. That integration is exactly what this proposal targets.
+	}
+\end{frame}
+
+%--- Slide 9: Agentic Systems ---
+\begin{frame}
+	\frametitle{Agentic Systems}
+
+	\begin{columns}[c]
+		\begin{column}{0.63\textwidth}
+			\includegraphics[width=\linewidth]{agentic_amnesia.jpg}
+		\end{column}
+		\begin{column}{0.34\textwidth}
+			\begin{alertblock}{Limitations}
+				\begin{itemize}
+					\setlength{\itemsep}{4pt}
+					\item Ephemeral memory
+					\item No structural persistence
+					\item Weak auditability
+				\end{itemize}
+			\end{alertblock}
+		\end{column}
+	\end{columns}
+
+	\note{
+This brings us to Agentic Systems --- projects like Denario and the frameworks Trinkenreich et al. describe. These agents can execute complex, multi-step research tasks. That's genuinely impressive.
+
+But they suffer from amnesia. Memory is bounded by the context window. Once the session ends, the structural state of the research is gone.
+
+There's no persistent substrate anchoring their reasoning over time. Every session starts cold. That's the ceiling we need to break through.
+	}
+\end{frame}
+
+%--- Slide 10: Empirical Evaluation Standards ---
+\begin{frame}
+	\frametitle{Empirical Evaluation Standards}
+
+	\begin{columns}[c]
+		\begin{column}{0.58\textwidth}
+			\begin{itemize}
+				\setlength{\itemsep}{6pt}
+				\item \textcite{ralph2021empirical}: Empirical Standards for SE
+				\item \textcite{baltes2025guidelines}: Guidelines for LLM Studies
+			\end{itemize}
+			\vspace{0.4em}
+			\begin{exampleblock}{Observation}
+				\small Single-pass or qualitative evaluations dominate.
+			\end{exampleblock}
+			\vspace{0.3em}
+			\begin{alertblock}{Need}
+				\small Longitudinal evaluation of coherent research state over time.
+			\end{alertblock}
+		\end{column}
+		\begin{column}{0.38\textwidth}
+			\centering
+			\begin{tikzpicture}[scale=0.78, every node/.style={font=\scriptsize}]
+				% Clipboard body
+				\draw[rounded corners=3pt, fill=myOrange!12, draw=myOrange!60, thick] (0,0) rectangle (3.2,3.8);
+				% Clip at top
+				\draw[fill=myOrange!40, draw=myOrange!70, thick, rounded corners=2pt] (1.0,3.55) rectangle (2.2,4.1);
+				% Row 1: checked
+				\draw[draw=myOrange!70, thick] (0.25,3.1) rectangle (0.55,3.35);
+				\draw[thick, myOrange] (0.30,3.18) -- (0.40,3.32) -- (0.55,3.08);
+				\draw[myRed!30, thick] (0.7,3.22) -- (2.9,3.22);
+				\node[right, font=\tiny] at (0.7,3.22) {Standards defined};
+				% Row 2: checked
+				\draw[draw=myOrange!70, thick] (0.25,2.5) rectangle (0.55,2.75);
+				\draw[thick, myOrange] (0.30,2.58) -- (0.40,2.72) -- (0.55,2.48);
+				\draw[myRed!30, thick] (0.7,2.62) -- (2.9,2.62);
+				\node[right, font=\tiny] at (0.7,2.62) {Guidelines published};
+				% Row 3: empty
+				\draw[draw=myRed!50, thick] (0.25,1.9) rectangle (0.55,2.15);
+				\draw[myRed!30, thick] (0.7,2.02) -- (2.9,2.02);
+				\node[right, font=\tiny, color=myRed!80] at (0.7,2.02) {Agent validation?};
+				% Row 4: empty
+				\draw[draw=myRed!50, thick] (0.25,1.3) rectangle (0.55,1.55);
+				\draw[myRed!30, thick] (0.7,1.42) -- (2.9,1.42);
+				\node[right, font=\tiny, color=myRed!80] at (0.7,1.42) {Longitudinal metrics?};
+				% Row 5: empty
+				\draw[draw=myRed!50, thick] (0.25,0.7) rectangle (0.55,0.95);
+				\draw[myRed!30, thick] (0.7,0.82) -- (2.9,0.82);
+				\node[right, font=\tiny, color=myRed!80] at (0.7,0.82) {Provenance audit?};
+			\end{tikzpicture}
+		\end{column}
+	\end{columns}
+
+	\note{
+Finally, how do we evaluate any of this? Ralph et al. and Baltes et al. give us strong standards for SE and LLM experiments --- clear, rigorous, and well-respected in the community.
+
+But current agentic research frequently falls short. Evaluations are single-pass or qualitative. We test a snapshot, not a trajectory.
+
+What's missing is longitudinal evaluation --- frameworks that measure whether an agent is actually maintaining a coherent research state over weeks or months, not just getting the right answer once.
+	}
+\end{frame}
+
+%---------------------------------------------------------
+%	SECTION 3: SYNTHESIS
+%---------------------------------------------------------
+\section{Synthesis}
+
+%--- Slide 11: Cross-Cutting Gaps ---
+\begin{frame}
+	\frametitle{Cross-Cutting Gaps in the Literature}
+
+	\begin{center}
+		\begin{tikzpicture}[scale=0.85, every node/.style={font=\small}]
+			% Circles — all VT palette
+			\fill[myRed!18] (-1.2,0.8) circle (1.5);
+			\fill[myOrange!18] (1.2,0.8) circle (1.5);
+			\fill[myRed!10] (-1.2,-0.8) circle (1.5);
+			\fill[myOrange!10] (1.2,-0.8) circle (1.5);
+			\draw[myRed!60, thick] (-1.2,0.8) circle (1.5) node[above=1cm] {\textbf{Retrieval}};
+			\draw[myOrange!60, thick] (1.2,0.8) circle (1.5) node[above=1cm] {\textbf{Graphs}};
+			\draw[myRed!40, thick] (-1.2,-0.8) circle (1.5) node[below=1cm] {\textbf{Agents}};
+			\draw[myOrange!40, thick] (1.2,-0.8) circle (1.5) node[below=1cm] {\textbf{Evaluation}};
+			% Gap label
+			\node[fill=white, draw=myRed, thick, rounded corners, inner sep=3pt] at (0,0) {\textbf{GAP}};
+			% Side labels — shifted to avoid touching circles
+			\node[anchor=west, font=\scriptsize] at (3.2, 2.0) {unstructured};
+			\node[anchor=west, font=\scriptsize] at (3.2, 0.8) {static};
+			\node[anchor=west, font=\scriptsize] at (3.2,-0.8) {amnesic};
+			\node[anchor=west, font=\scriptsize] at (3.2,-2.0) {short-term};
+		\end{tikzpicture}
+	\end{center}
+
+	\vspace{0.2em}
+	\begin{center}
+		\emph{This fragmentation motivates new infrastructure.}
+	\end{center}
+
+	\note{
+Synthesizing across all five domains, the fragmentation is clear.
+
+Retrieval is unstructured. Graphs are static. Agents are amnesic. Evaluation is short-term. Each domain has made real progress in isolation --- but none of them connect.
+
+Retrieval finds content but can't reason over it. Graphs provide structure but require human maintenance. Agents can execute complex tasks but forget everything when the session ends. And our evaluation tools weren't designed for longitudinal, multi-session workflows.
+
+No existing system integrates persistent structured memory with autonomous agency and rigorous provenance. That gap in the center isn't an accident --- it's the core blocker to true AI-assisted research progression.
+	}
+\end{frame}
+
+%--- Slide 12: Positioning My Work ---
+\begin{frame}
+	\frametitle{Positioning My Work}
+
+	\begin{block}{Intersection}
+		\textbf{Agentic systems} + \textbf{Knowledge graph persistence} + \textbf{Span-level traceability}
+	\end{block}
+
+	\vspace{0.5em}
+	\textbf{Literature Refined:}
+	\begin{itemize}
+		\item Need for stronger evaluation standards\newline
+		\item Clearer scope (Software Engineering focus)\newline
+		\item Explicit longitudinal testing
+	\end{itemize}
+\end{frame}
+
+%---------------------------------------------------------
+%	SECTION 4: PROPOSAL
+%---------------------------------------------------------
+\section{Proposal}
+
+%--- Slide 13: Proposed Architecture ---
+\begin{frame}
+	\frametitle{Proposed Architecture}
+
+	\begin{center}
+		\begin{tikzpicture}[
+			node distance=2cm,
+			box/.style={draw, rounded corners, fill=myRed!10, minimum width=2cm, minimum height=0.8cm, font=\small, thick},
+			kgbox/.style={draw, rounded corners, fill=myOrange!20, minimum width=2.5cm, minimum height=1cm, font=\small\bfseries, thick, double},
+			arr/.style={-{Stealth[length=2.5mm]}, thick, myRed}
+		]
+			\node[box] (human) {Human};
+			\node[box, right=of human] (agent) {Agent};
+			\node[kgbox, below=1.2cm of agent] (kg) {Knowledge Graph};
+
+			\draw[arr] (human) -- node[above, font=\footnotesize]{query} (agent);
+			\draw[arr] (agent) -- node[right, font=\footnotesize]{write} (kg);
+			\draw[arr] (kg) -- node[left, font=\footnotesize]{read} (agent);
+			\draw[arr, bend right=30] (agent) to node[above, font=\footnotesize]{response} (human);
+			\draw[arr, bend right=30, dashed] (human) to node[below, font=\footnotesize]{oversee} (kg);
+		\end{tikzpicture}
+	\end{center}
+
+	\vspace{0.5em}
+	\begin{block}{Persistent Research State Loop}
+		\begin{itemize}
+			\item Human-in-the-loop oversight
+			\item Agent-mediated updates
+			\item Knowledge Graph as the \textbf{Source of Truth}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+%--- Slide 14: Core Innovation ---
+\begin{frame}
+	\frametitle{Core Innovation}
+
+	\begin{center}
+		\begin{tikzpicture}[scale=0.8]
+			% Document
+			\node[draw, thick, minimum width=2.5cm, minimum height=3cm, fill=gray!5] (doc) at (0,0) {};
+			\node[above] at (doc.north) {\footnotesize \textbf{Source PDF}};
+			\draw[myOrange, ultra thick] (-0.8,-0.2) -- (0.8,-0.2);
+			\node[font=\tiny] at (0,-0.2) {highlighted span};
+			% Arrow
+			\draw[-{Stealth[length=3mm]}, ultra thick, myRed] (2,0) -- (4,0);
+			% Graph node
+			\node[circle, draw=myRed, thick, fill=myRed!15, minimum size=1cm] (n) at (5.5,0) {\footnotesize Node};
+			\node[circle, draw=myOrange, thick, fill=myOrange!15, minimum size=0.7cm] (n2) at (7,1) {\tiny Edge};
+			\draw[thick] (n) -- (n2);
+		\end{tikzpicture}
+	\end{center}
+
+	\vspace{0.5em}
+	\begin{enumerate}
+		\item \textbf{Span-level evidence alignment} --- every node traces to a source sentence\newline
+		\item \textbf{Canonicalization Agent} --- de-duplicates entities in the graph\newline
+		\item \textbf{Versioned provenance chains} --- full audit trail
+	\end{enumerate}
+\end{frame}
+
+%---------------------------------------------------------
+%	SECTION 5: EVALUATION
+%---------------------------------------------------------
+\section{Evaluation}
+
+%--- Slide 15: Evaluation Framework ---
+\begin{frame}
+	\frametitle{Evaluation Framework}
+
+	\begin{center}
+		\begin{tabular}{@{} l l l @{}}
+			\toprule
+			\textbf{Claim} & \textbf{Metric} & \textbf{Baseline} \\
+			\midrule
+			Span-level alignment & Precision / Recall / F1 & Standard RAG \\
+			Canonicalization & Cohen's $\kappa$ & Embedding clustering \\
+			Traceability & Audit completeness \% & RAG w/ citations \\
+			Persistence & Retention accuracy & Chat-only LLM \\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+
+	\vspace{1em}
+	\begin{exampleblock}{Key Question}
+		Does the system retain knowledge better than a long-context chat window over a 4-week period?
+	\end{exampleblock}
+\end{frame}
+
+%--- Slide 16: Experimental Design ---
+\begin{frame}
+	\frametitle{Experimental Design Overview}
+
+	\begin{columns}[t]
+		\begin{column}{0.55\textwidth}
+			\begin{itemize}
+				\item \textbf{Dataset:} Annotated span dataset from SE literature\newline
+				\item \textbf{Injection:} Synthetic duplicate injection to test canonicalization\newline
+				\item \textbf{Audit:} Human traceability audit\newline
+				\item \textbf{Task:} 4-week longitudinal retention task
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\begin{tikzpicture}[scale=0.7]
+				% Timeline
+				\draw[ultra thick, myRed] (0,0) -- (0,-5);
+				\foreach \y/\label in {0/Week 1, -1.5/Week 2, -3/Week 3, -4.5/Week 4} {
+					\fill[myOrange] (0,\y) circle (4pt);
+					\node[right=0.3cm, font=\footnotesize\bfseries] at (0,\y) {\label};
+				}
+			\end{tikzpicture}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%---------------------------------------------------------
+%	SECTION 6: CONTRIBUTIONS & FUTURE WORK
+%---------------------------------------------------------
+\section{Contributions}
+
+%--- Slide 17: Contributions ---
+\begin{frame}
+	\frametitle{Contributions}
+
+	\begin{enumerate}
+		\item \textbf{Formal definition} of Research State in an AI context\newline
+		\item \textbf{Agentic Curation Protocol} for graph maintenance\newline
+		\item \textbf{Reference infrastructure} implementation
+	\end{enumerate}
+\end{frame}
+
+%--- Slide 18: Near-Term Work ---
+\begin{frame}
+	\frametitle{Near-Term Work}
+
+	\begin{itemize}
+		\item Controlled evaluation studies\newline
+		\item Artifact release (Code \& Datasets)\newline
+		\item SE-focused deployment
+	\end{itemize}
+\end{frame}
+
+%--- Slide 19: Long-Term Vision ---
+\begin{frame}
+	\frametitle{Long-Term Vision}
+
+	\begin{itemize}
+		\item Cross-domain expansion (Biology, Physics, CS, \ldots)\newline
+		\item Persistent AI-assisted research infrastructure\newline
+		\item Structured memory for scientific discovery
+	\end{itemize}
+\end{frame}
+
+%---------------------------------------------------------
+%	SECTION 7: CONCLUSION
+%---------------------------------------------------------
+\section{Conclusion}
+
+%--- Slide 20: Conclusion ---
+\begin{frame}
+	\frametitle{Conclusion}
+
+	\begin{center}
+		\begin{tikzpicture}
+			\node[draw, rounded corners, fill=gray!10, minimum width=3cm, minimum height=1cm, thick] (from) at (0,0) {\textbf{Fragmented Chat}};
+			\draw[-{Stealth[length=4mm]}, ultra thick, myOrange] (2.5,0) -- (5.5,0);
+			\node[draw, rounded corners, fill=myRed!15, minimum width=3cm, minimum height=1cm, thick] (to) at (8,0) {\textbf{Persistent State}};
+		\end{tikzpicture}
+	\end{center}
+
+	\vspace{1em}
+	\begin{itemize}
+		\item \textbf{From:} Fragmented chat interaction\newline
+		\item \textbf{To:} Persistent, traceable research state\newline
+		\item \textbf{Goal:} Infrastructure for discovery
+	\end{itemize}
+\end{frame}
+
+%---------------------------------------------------------
+%	CLOSING SLIDE
+%---------------------------------------------------------
+\appendix
+\setbeamertemplate{headline}{}
+\addtobeamertemplate{frametitle}{\vspace*{-\headheight}}{}
+
+\begin{frame}[noframenumbering]
+	\begin{center}
+		{\LARGE Questions?}
+
+		\vspace{1em}
+		{\large Jason Cusati}\\
+		\texttt{djjay@vt.edu}
+	\end{center}
+\end{frame}
+
+%---------------------------------------------------------
+%	REFERENCES
+%---------------------------------------------------------
+\begin{frame}[noframenumbering, allowframebreaks]
+	\frametitle{References}
+	\printbibliography
+\end{frame}
+
+\end{document}

@@ -1,12 +1,10 @@
 # Active Context
 
-**Last Updated:** 2026-02-24
+**Last Updated:** 2026-03-06
 
 ## Current Work Phase
 
-**Sprint 3: Research Proposal & Paper Completion** (Phases 3-4)
-
-Sprint 3 Tasks 1-6 complete. Research proposal, introduction, and conclusion written. Gate 3 passed (page count deferred to polish). Next: Abstract (Task 7).
+**Sprint 5: Slide Polish** — Slides 2-11 complete. Next: S12 (Positioning My Work).
 
 ## Current State
 
@@ -14,15 +12,19 @@ Sprint 3 Tasks 1-6 complete. Research proposal, introduction, and conclusion wri
 
 - Sprint 1 COMPLETE — Gate 1 PASSED (2026-02-21)
 - Sprint 2 COMPLETE — Gate 2 PASSED (2026-02-23)
-- Sprint 3 Tasks 1-6 COMPLETE — Proposal, Gate 3, Introduction, and Conclusion done (2026-02-24)
-- Introduction in `proposal/sections/02-introduction.tex` (~0.5 pages, all 6 papers cited)
-- Literature review in `proposal/sections/03-literature-review.tex` (~2 pages)
-- Research proposal in `proposal/sections/04-research-proposal.tex` (~1.5 pages)
-- Conclusion in `proposal/sections/05-conclusion.tex` (~0.25 pages, 3 paragraphs, no new citations)
-- Proposal: "agentic knowledge graphs for research progression" — provenance-first, three-layer architecture
-- KG is primary substrate but provenance-enforcement patterns generalize across representations
-- Remaining: abstract still has TODO placeholder
-- Gate 3 passed (6/7, page count flag deferred to polish phase Task 9)
+- Sprint 3 COMPLETE — Gate 3+4 PASSED (all paper sections done, abstract written)
+- Sprint 4 COMPLETE — Presentation scaffolded (20 slides, all sections present)
+- Sprint 5 IN PROGRESS — Slides 2-11 polished with notes and visuals
+
+**Slide Polish Progress (Sprint 5):**
+
+- S02-S06: ✅ (done previous session)
+- S07: ✅ rag_vs_kg.jpg, two-column layout, notes approved
+- S08: ✅ TikZ KG diagram (4 nodes, labeled edges), notes approved
+- S09: ✅ agentic_amnesia.jpg, two-column layout, notes approved
+- S10: ✅ TikZ clipboard checklist, notes approved
+- S11: ✅ VT-color Venn TikZ, four-adjective labels, expanded notes
+- S12-S20: pending
 
 **Construction Artifacts:**
 - Requirements: 50+ functional requirements, 29 acceptance criteria, risk register, verification plan
