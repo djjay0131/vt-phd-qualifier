@@ -49,6 +49,7 @@ jobs:
           # Prepare GitHub Pages content
           mkdir -p public
           cp proposal/main.pdf public/VT-PhD-Qualifier.pdf
+          cp presentation/main.pdf public/VT-PhD-Qualifier-Slides.pdf
 
       - name: Generate landing page
         run: |
@@ -325,6 +326,8 @@ jobs:
 
             <div class="download-bar">
               <a href="VT-PhD-Qualifier.pdf">Download Full Paper (PDF)</a>
+              &nbsp;&nbsp;
+              <a href="VT-PhD-Qualifier-Slides.pdf">Download Slides (PDF)</a>
             </div>
 
             <main>
